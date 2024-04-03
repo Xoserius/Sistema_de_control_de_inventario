@@ -1,0 +1,13 @@
+    def __init__(self):
+        """
+        Inicializa la ventana principal.
+        """
+        super().__init__()
+        self.setupUi(self)  # Configura la interfaz definida en Qt Designer
+
+
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    window = Ui_Dialog_login()
+    window.show()
+    sys.exit(app.exec_())

@@ -1,0 +1,11 @@
+<RCC>
+  <qresource prefix="Producto">
+    <file>sticker-png-delivery-icon-product-icon.png</file>
+  </qresource>
+  <qresource prefix="Venta">
+    <file>venta-Photoroom.png</file>
+  </qresource>
+  <qresource prefix="Usuario">
+    <file>6326055.png</file>
+  </qresource>
+</RCC>
