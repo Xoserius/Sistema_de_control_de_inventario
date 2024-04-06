@@ -189,7 +189,7 @@ color: rgb(255, 255, 254);
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_salir">
+           <widget class="QPushButton" name="pushButton_salir_menu">
             <property name="minimumSize">
              <size>
               <width>101</width>
