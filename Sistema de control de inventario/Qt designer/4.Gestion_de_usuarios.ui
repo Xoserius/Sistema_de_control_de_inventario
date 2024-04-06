@@ -121,23 +121,24 @@ color: rgb(255, 255, 254);
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
-          <property name="spacing">
-           <number>6</number>
-          </property>
-          <property name="leftMargin">
-           <number>9</number>
-          </property>
-          <property name="topMargin">
-           <number>9</number>
-          </property>
-          <property name="rightMargin">
-           <number>9</number>
-          </property>
-          <property name="bottomMargin">
-           <number>9</number>
-          </property>
           <item>
-           <widget class="QPushButton" name="pushButton_andir">
+           <widget class="QPushButton" name="pushButton_usuarios">
+            <property name="minimumSize">
+             <size>
+              <width>126</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Usuarios</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_anadir">
             <property name="minimumSize">
              <size>
               <width>126</width>
@@ -153,7 +154,7 @@ color: rgb(255, 255, 254);
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_actualizarsuperior">
+           <widget class="QPushButton" name="pushButton_actualizar">
             <property name="minimumSize">
              <size>
               <width>126</width>
@@ -198,7 +199,7 @@ color: rgb(255, 255, 254);
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_regresar">
+           <widget class="QPushButton" name="pushButton_regresar_gestion">
             <property name="minimumSize">
              <size>
               <width>126</width>
@@ -306,7 +307,7 @@ border: 1px solid rgb(0, 206, 151);
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>1</number>
             </property>
             <widget class="QWidget" name="page_usuarios">
              <layout class="QVBoxLayout" name="verticalLayout_3">

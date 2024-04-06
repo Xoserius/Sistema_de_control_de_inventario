@@ -123,7 +123,7 @@ color: rgb(255, 255, 254);
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_regresar_2">
+           <widget class="QPushButton" name="pushButton_regresar_iv">
             <property name="minimumSize">
              <size>
               <width>126</width>
@@ -321,7 +321,7 @@ border:0px;</string>
                 </size>
                </property>
                <property name="whatsThis">
-                <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;&lt;br/&gt;&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+                <string/>
                </property>
                <property name="styleSheet">
                 <string notr="true">background-image: url(:/Venta/venta-Photoroom.png);
