@@ -87,93 +87,84 @@ color: rgb(255, 255, 254);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_2">
-          <property name="spacing">
-           <number>5</number>
-          </property>
-          <property name="leftMargin">
-           <number>5</number>
-          </property>
-          <property name="topMargin">
-           <number>5</number>
-          </property>
-          <property name="rightMargin">
-           <number>5</number>
-          </property>
-          <property name="bottomMargin">
-           <number>5</number>
-          </property>
+         <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <layout class="QHBoxLayout" name="horizontalLayout">
-            <property name="spacing">
-             <number>8</number>
+           <widget class="QPushButton" name="pushButton_gestiondeusuario">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
             </property>
-            <item>
-             <widget class="QPushButton" name="pushButton_gestiondeusuario">
-              <property name="minimumSize">
-               <size>
-                <width>150</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Gestion de Usuario</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_ingresarventa">
-              <property name="minimumSize">
-               <size>
-                <width>138</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Ingresar Venta</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_reportes">
-              <property name="minimumSize">
-               <size>
-                <width>138</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Reportes</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_anadir_eliminar">
-              <property name="minimumSize">
-               <size>
-                <width>138</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Añadir/Eliminar</string>
-              </property>
-             </widget>
-            </item>
-            <item>
-             <widget class="QPushButton" name="pushButton_soporte">
-              <property name="minimumSize">
-               <size>
-                <width>137</width>
-                <height>30</height>
-               </size>
-              </property>
-              <property name="text">
-               <string>Soporte</string>
-              </property>
-             </widget>
-            </item>
-           </layout>
+            <property name="text">
+             <string>Gestion de Usuario</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_ingresarventa">
+            <property name="minimumSize">
+             <size>
+              <width>138</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Ingresar Venta</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_reportes">
+            <property name="minimumSize">
+             <size>
+              <width>138</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Reportes</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_anadir_eliminar">
+            <property name="minimumSize">
+             <size>
+              <width>138</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Sumar/Restar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_productos">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Productos</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_soporte">
+            <property name="minimumSize">
+             <size>
+              <width>137</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Soporte</string>
+            </property>
+           </widget>
           </item>
           <item>
            <spacer name="horizontalSpacer">

@@ -106,6 +106,9 @@ color: rgb(255, 255, 254);
           <enum>QFrame::Raised</enum>
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout_6">
+          <property name="topMargin">
+           <number>10</number>
+          </property>
           <item>
            <spacer name="horizontalSpacer_13">
             <property name="orientation">
@@ -332,7 +335,7 @@ background-color: rgb(255, 255, 255);</string>
                 </spacer>
                </item>
                <item>
-                <widget class="QLabel" name="label_actualizarusuarios_2">
+                <widget class="QLabel" name="label_actualizar_cantd">
                  <property name="font">
                   <font>
                    <family>Impact</family>
@@ -370,7 +373,7 @@ border:0px;</string>
               </layout>
              </item>
              <item row="8" column="0">
-              <widget class="QLineEdit" name="lineEdit_apellido_actualizarusuarios_2">
+              <widget class="QLineEdit" name="lineEdit_descrip_prod">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -386,7 +389,7 @@ border:0px;</string>
               </widget>
              </item>
              <item row="9" column="0">
-              <widget class="QLineEdit" name="lineEdit_usuario_actualizarusuarios_2">
+              <widget class="QLineEdit" name="lineEdit_cant_prod">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -402,7 +405,7 @@ border:0px;</string>
               </widget>
              </item>
              <item row="5" column="0">
-              <widget class="QLineEdit" name="lineEdit_cedulabuscar_actualizarusuarios_2">
+              <widget class="QLineEdit" name="lineEdit_sku_buscar">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -418,7 +421,7 @@ border:0px;</string>
               </widget>
              </item>
              <item row="10" column="0">
-              <widget class="QPushButton" name="pushButton_actualizarusuarios_2">
+              <widget class="QPushButton" name="pushButton_actualizar_cant">
                <property name="minimumSize">
                 <size>
                  <width>130</width>
@@ -431,7 +434,7 @@ border:0px;</string>
               </widget>
              </item>
              <item row="6" column="0">
-              <widget class="QPushButton" name="pushButton_buscar_actualizarusuarios_2">
+              <widget class="QPushButton" name="pushButton_buscar_sku">
                <property name="minimumSize">
                 <size>
                  <width>130</width>

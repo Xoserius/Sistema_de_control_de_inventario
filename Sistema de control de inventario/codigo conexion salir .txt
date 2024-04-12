@@ -1,0 +1,56 @@
+class Ui_ventana_inicio(QMainWindow): #clase creada para la ventana de Inicio 
+    
+    def __init__(self):
+        # Inicializa una nueva instancia de la clase.
+        super().__init__()
+        # Llama al constructor de la clase base
+        loadUi("1.Inicio.ui", self)
+        # Carga la interfaz de usuario desde el archivo
+
+        # Conectar el botón "Iniciar sesión" a la función para abrir la ventana de inicio de sesión
+        self.pushButton_iniciarsesion.clicked.connect(self.abrir_ventana_login)
+        self.pushButton_Salir.clicked.connect(self.salir)
+        # Conectar a la base de datos
+        self.conexion_db = sqlite3.connect("Base de datos proyecto.db")
+        # Crear una instancia de la ventana de menú principal
+        self.ventana_menu_principal = Ui_QMainwindow_Menu_principal()
+
+    def salir(self):
+        # Cerrar la conexión a la base de datos antes de salir
+        self.conexion_db.close()
+        self.close()
+
+    def abrir_ventana_login(self):
+        self.ventana_login = Ui_Qdialog_login(self.conexion_db, self.ventana_menu_principal)
+        self.ventana_login.login_successful.connect(self.close)  # Conectar la señal al método close
+        self.ventana_login.show()
+
+class Ui_Qdialog_login(QDialog):
+    login_successful = pyqtSignal()  # Señal que se emitirá en un login exitoso
+
+    def __init__(self, conexion_db, ventana_menu_principal):
+        super().__init__()
+        loadUi("2.Login.ui", self)
+        self.conexion_db = conexion_db
+        self.ventana_menu_principal = ventana_menu_principal
+        self.pushButton_aceptar.clicked.connect(self.iniciar_sesion)
+
+    def iniciar_sesion(self):
+        usuario = self.lineEdit_usuario.text()
+        clave = self.lineEdit_clave.text()
+        # Validación de campos omitida por brevedad
+        try:
+            cursor = self.conexion_db.cursor()
+            consulta = "SELECT * FROM usuarios WHERE usuario = ? AND clave = ?"
+            cursor.execute(consulta, (usuario, clave))
+            resultado = cursor.fetchone()
+            cursor.close()
+
+            if resultado:
+                self.login_successful.emit()  # Emitir señal de éxito
+                self.close()
+                self.ventana_menu_principal.showFullScreen()
+            else:
+                QMessageBox.warning(self, "Acceso denegado", "Usuario o clave inválida.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error", f"Se produjo un error: {str(e)}")

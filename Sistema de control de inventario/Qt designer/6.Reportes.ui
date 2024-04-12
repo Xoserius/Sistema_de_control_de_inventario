@@ -7,13 +7,13 @@
     <x>0</x>
     <y>0</y>
     <width>1120</width>
-    <height>720</height>
+    <height>800</height>
    </rect>
   </property>
   <property name="minimumSize">
    <size>
-    <width>1080</width>
-    <height>720</height>
+    <width>1120</width>
+    <height>800</height>
    </size>
   </property>
   <property name="maximumSize">
@@ -26,12 +26,6 @@
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <property name="minimumSize">
-    <size>
-     <width>1080</width>
-     <height>720</height>
-    </size>
-   </property>
    <property name="styleSheet">
     <string notr="true">background-color: rgb(22, 22, 20);
 
@@ -82,6 +76,38 @@ color: rgb(255, 255, 254);
          </property>
          <property name="text">
           <string>Stock</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_stock_danados">
+         <property name="minimumSize">
+          <size>
+           <width>126</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Stock dañados</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QPushButton" name="pushButton_stock_vencidos">
+         <property name="minimumSize">
+          <size>
+           <width>126</width>
+           <height>30</height>
+          </size>
+         </property>
+         <property name="styleSheet">
+          <string notr="true"/>
+         </property>
+         <property name="text">
+          <string>Stock vencidos</string>
          </property>
         </widget>
        </item>
@@ -140,12 +166,6 @@ color: rgb(255, 255, 254);
     </item>
     <item>
      <widget class="QFrame" name="frame_inferior">
-      <property name="maximumSize">
-       <size>
-        <width>16777215</width>
-        <height>16777215</height>
-       </size>
-      </property>
       <property name="styleSheet">
        <string notr="true">QFrame{ 
 	background-color: rgb(255, 255, 255);
@@ -214,7 +234,7 @@ border: 1px solid rgb(0, 206, 151);
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>1</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page_stock">
           <property name="minimumSize">
@@ -223,7 +243,7 @@ border: 1px solid rgb(0, 206, 151);
             <height>720</height>
            </size>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_3">
+          <layout class="QVBoxLayout" name="verticalLayout_6">
            <item>
             <widget class="QLabel" name="label_stock">
              <property name="font">
@@ -245,18 +265,6 @@ border: 1px solid rgb(0, 206, 151);
            </item>
            <item>
             <widget class="QTableWidget" name="tableWidget_stock">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>550</height>
-              </size>
-             </property>
-             <property name="maximumSize">
-              <size>
-               <width>16777215</width>
-               <height>16777215</height>
-              </size>
-             </property>
              <column>
               <property name="text">
                <string>SKU</string>
@@ -330,17 +338,213 @@ color: rgb(255, 255, 254);
             </layout>
            </item>
            <item>
-            <spacer name="verticalSpacer">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
+            <layout class="QHBoxLayout" name="horizontalLayout_6"/>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_stock_danados">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_8">
+           <item>
+            <widget class="QLabel" name="label_stock_danados">
+             <property name="font">
+              <font>
+               <family>Impact</family>
+               <pointsize>16</pointsize>
+              </font>
              </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>73</height>
-              </size>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
              </property>
-            </spacer>
+             <property name="text">
+              <string>STOCK DAÑADOS</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tableWidget_stock_danados">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>SKU</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Codigo de Barra</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Descripción</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Precio $</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Cantidad</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_10">
+             <item>
+              <spacer name="horizontalSpacer_14">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_refrescar_stock_danados">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">
+QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));
+border-radius: 10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254); }
+
+QPushButton:hover{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));
+border-radius:10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254);
+}</string>
+               </property>
+               <property name="text">
+                <string>Actualizar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
+           </item>
+          </layout>
+         </widget>
+         <widget class="QWidget" name="page_stock_vencidos">
+          <property name="styleSheet">
+           <string notr="true"/>
+          </property>
+          <layout class="QVBoxLayout" name="verticalLayout_9">
+           <item>
+            <widget class="QLabel" name="label_stock_vencidos">
+             <property name="font">
+              <font>
+               <family>Impact</family>
+               <pointsize>16</pointsize>
+              </font>
+             </property>
+             <property name="styleSheet">
+              <string notr="true">color: rgb(255, 255, 255);</string>
+             </property>
+             <property name="text">
+              <string>STOCK VENCIDOS</string>
+             </property>
+             <property name="alignment">
+              <set>Qt::AlignCenter</set>
+             </property>
+            </widget>
+           </item>
+           <item>
+            <widget class="QTableWidget" name="tableWidget_stock_vencidos">
+             <property name="styleSheet">
+              <string notr="true">background-color: rgb(255, 255, 255);</string>
+             </property>
+             <column>
+              <property name="text">
+               <string>SKU</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Codigo de Barra</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Descripción</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Precio $</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Cantidad</string>
+              </property>
+             </column>
+            </widget>
+           </item>
+           <item>
+            <layout class="QHBoxLayout" name="horizontalLayout_11">
+             <item>
+              <spacer name="horizontalSpacer_15">
+               <property name="orientation">
+                <enum>Qt::Horizontal</enum>
+               </property>
+               <property name="sizeHint" stdset="0">
+                <size>
+                 <width>40</width>
+                 <height>20</height>
+                </size>
+               </property>
+              </spacer>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_refrescar_stock_vencidos">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="styleSheet">
+                <string notr="true">
+QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));
+border-radius: 10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254); }
+
+QPushButton:hover{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));
+border-radius:10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254);
+}</string>
+               </property>
+               <property name="text">
+                <string>Actualizar</string>
+               </property>
+              </widget>
+             </item>
+            </layout>
            </item>
           </layout>
          </widget>
@@ -348,7 +552,7 @@ color: rgb(255, 255, 254);
           <property name="styleSheet">
            <string notr="true"/>
           </property>
-          <layout class="QVBoxLayout" name="verticalLayout_6">
+          <layout class="QVBoxLayout" name="verticalLayout_7">
            <item>
             <widget class="QLabel" name="label_stock_4">
              <property name="font">
@@ -370,12 +574,6 @@ color: rgb(255, 255, 254);
            </item>
            <item>
             <widget class="QTableWidget" name="tableWidget_ventas">
-             <property name="minimumSize">
-              <size>
-               <width>0</width>
-               <height>550</height>
-              </size>
-             </property>
              <property name="styleSheet">
               <string notr="true">background-color: rgb(255, 255, 255);</string>
              </property>
@@ -450,19 +648,6 @@ color: rgb(255, 255, 254);
               </widget>
              </item>
             </layout>
-           </item>
-           <item>
-            <spacer name="verticalSpacer_4">
-             <property name="orientation">
-              <enum>Qt::Vertical</enum>
-             </property>
-             <property name="sizeHint" stdset="0">
-              <size>
-               <width>20</width>
-               <height>73</height>
-              </size>
-             </property>
-            </spacer>
            </item>
           </layout>
          </widget>

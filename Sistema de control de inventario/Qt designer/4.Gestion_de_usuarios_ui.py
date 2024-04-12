@@ -38,6 +38,7 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.verticalLayout_2.setSpacing(0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
         self.frame_superior = QtWidgets.QFrame(parent=self.frame_fondo)
+        self.frame_superior.setMinimumSize(QtCore.QSize(0, 50))
         self.frame_superior.setMaximumSize(QtCore.QSize(16777215, 50))
         self.frame_superior.setStyleSheet("\n"
 "\n"
@@ -612,11 +613,11 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.lineEdit_telefono_registrodeusuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_telefono_registrodeusuario.setObjectName("lineEdit_telefono_registrodeusuario")
         self.gridLayout.addWidget(self.lineEdit_telefono_registrodeusuario, 4, 0, 1, 2)
-        self.lineEdit_codigo_registrodeusuario = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
-        self.lineEdit_codigo_registrodeusuario.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_codigo_registrodeusuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_codigo_registrodeusuario.setObjectName("lineEdit_codigo_registrodeusuario")
-        self.gridLayout.addWidget(self.lineEdit_codigo_registrodeusuario, 6, 0, 1, 1)
+        self.lineEdit_usuario_registrodeusuario = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
+        self.lineEdit_usuario_registrodeusuario.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_usuario_registrodeusuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_usuario_registrodeusuario.setObjectName("lineEdit_usuario_registrodeusuario")
+        self.gridLayout.addWidget(self.lineEdit_usuario_registrodeusuario, 6, 0, 1, 1)
         self.lineEdit_cedula_registrodeusuario = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
         self.lineEdit_cedula_registrodeusuario.setMinimumSize(QtCore.QSize(30, 30))
         self.lineEdit_cedula_registrodeusuario.setText("")
@@ -648,7 +649,7 @@ class Ui_MainWindow_gestiondeusuarios(object):
         MainWindow_gestiondeusuarios.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_gestiondeusuarios)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_gestiondeusuarios)
 
     def retranslateUi(self, MainWindow_gestiondeusuarios):
@@ -712,6 +713,6 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.comboBox_permiso.setItemText(0, _translate("MainWindow_gestiondeusuarios", "Personal Base"))
         self.comboBox_permiso.setItemText(1, _translate("MainWindow_gestiondeusuarios", "Supervisor"))
         self.lineEdit_telefono_registrodeusuario.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Teléfono"))
-        self.lineEdit_codigo_registrodeusuario.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Usuario"))
+        self.lineEdit_usuario_registrodeusuario.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Usuario"))
         self.lineEdit_cedula_registrodeusuario.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Cédula"))
         self.label_registrodeusuario.setText(_translate("MainWindow_gestiondeusuarios", "REGISTRO DE USUARIO"))

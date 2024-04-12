@@ -307,35 +307,6 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QFrame" name="frame_imagen_producto">
-               <property name="minimumSize">
-                <size>
-                 <width>347</width>
-                 <height>300</height>
-                </size>
-               </property>
-               <property name="maximumSize">
-                <size>
-                 <width>16777215</width>
-                 <height>300</height>
-                </size>
-               </property>
-               <property name="whatsThis">
-                <string/>
-               </property>
-               <property name="styleSheet">
-                <string notr="true">background-image: url(:/Venta/venta-Photoroom.png);
-background-color: rgb(255, 255, 255);</string>
-               </property>
-               <property name="frameShape">
-                <enum>QFrame::StyledPanel</enum>
-               </property>
-               <property name="frameShadow">
-                <enum>QFrame::Raised</enum>
-               </property>
-              </widget>
-             </item>
-             <item>
               <widget class="QLineEdit" name="lineEdit_sku_ingresarventa">
                <property name="minimumSize">
                 <size>
@@ -352,7 +323,7 @@ background-color: rgb(255, 255, 255);</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_buscar_sku_ingresarventa">
+              <widget class="QPushButton" name="pushButton_buscar_ingresarventa">
                <property name="minimumSize">
                 <size>
                  <width>130</width>
@@ -377,6 +348,56 @@ background-color: rgb(255, 255, 255);</string>
                </property>
                <property name="placeholderText">
                 <string>Descripción</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_fecha_ingresarventa">
+               <property name="minimumSize">
+                <size>
+                 <width>200</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="inputMask">
+                <string>99/99/99;_</string>
+               </property>
+               <property name="text">
+                <string comment="DD/MM/AA" extracomment="DD/MM/AA">//</string>
+               </property>
+               <property name="maxLength">
+                <number>8</number>
+               </property>
+               <property name="frame">
+                <bool>true</bool>
+               </property>
+               <property name="cursorPosition">
+                <number>0</number>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string comment="DD/MM/AA" extracomment="DD/MM/AA">DD/MM/AA</string>
+               </property>
+               <property name="cursorMoveStyle">
+                <enum>Qt::LogicalMoveStyle</enum>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QLineEdit" name="lineEdit_cod_ingresarventa">
+               <property name="minimumSize">
+                <size>
+                 <width>0</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="alignment">
+                <set>Qt::AlignCenter</set>
+               </property>
+               <property name="placeholderText">
+                <string>Codigo de Producto</string>
                </property>
               </widget>
              </item>
@@ -406,6 +427,19 @@ background-color: rgb(255, 255, 255);</string>
                </property>
                <property name="text">
                 <string>Enviar</string>
+               </property>
+              </widget>
+             </item>
+             <item>
+              <widget class="QPushButton" name="pushButton_limpiar">
+               <property name="minimumSize">
+                <size>
+                 <width>130</width>
+                 <height>30</height>
+                </size>
+               </property>
+               <property name="text">
+                <string>Limpiar</string>
                </property>
               </widget>
              </item>
