@@ -234,7 +234,7 @@ border: 1px solid rgb(0, 206, 151);
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>0</number>
+          <number>3</number>
          </property>
          <widget class="QWidget" name="page_stock">
           <property name="minimumSize">
@@ -311,7 +311,7 @@ border: 1px solid rgb(0, 206, 151);
               </spacer>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_refrescar_stock_danados_2">
+              <widget class="QPushButton" name="pushButton_refrescar_stock">
                <property name="minimumSize">
                 <size>
                  <width>130</width>
@@ -582,27 +582,32 @@ color: rgb(255, 255, 254);
              </property>
              <column>
               <property name="text">
-               <string>SKU</string>
+               <string>ID</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>Codigo de Barra</string>
+               <string>Fecha</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>Descripción</string>
+               <string>Sku de producto</string>
               </property>
              </column>
              <column>
               <property name="text">
-               <string>Precio $</string>
+               <string>Codigo de barra de producto</string>
               </property>
              </column>
              <column>
               <property name="text">
                <string>Cantidad</string>
+              </property>
+             </column>
+             <column>
+              <property name="text">
+               <string>Descripcion de producto</string>
               </property>
              </column>
             </widget>

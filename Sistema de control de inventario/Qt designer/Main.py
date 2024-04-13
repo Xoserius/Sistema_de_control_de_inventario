@@ -617,10 +617,14 @@ class Ui_QMainwindow_Reportes(QMainWindow):
 
         # Conexiones de los botones a sus respectivos métodos para mostrar páginas
         self.pushButton_regresar_rep.clicked.connect(self.salir)
+
         self.pushButton_stock.clicked.connect(self.mostrar_pagina_stock)
         self.pushButton_stock_danados.clicked.connect(self.mostrar_pagina_danados)
         self.pushButton_stock_vencidos.clicked.connect(self.mostrar_pagina_vencidos)
         self.pushButton_Ventas.clicked.connect(self.mostrar_pagina_ventas)
+
+        self.pushButton_refrescar_ventas.clicked.connect(self.refrescar_ventas)
+        self.pushButton_refrescar_stock.clicked.connect(self.refrescar_productos)    
         
       
     # Metodos para mostrar las paginas
@@ -632,8 +636,51 @@ class Ui_QMainwindow_Reportes(QMainWindow):
        self.stackedWidget.setCurrentIndex(2)
     def mostrar_pagina_ventas(self):
         self.stackedWidget.setCurrentIndex(3)
-    
 
+    def refrescar_productos (self):
+        conexion = sqlite3.connect("Base de datos proyecto.db")
+        cursor = conexion.cursor()
+        try:
+            cursor.execute("SELECT * FROM Productos")
+            productos = cursor.fetchall()
+
+            self.tableWidget_stock.setRowCount(0)  # Limpiar la tabla antes de añadir nuevas filas
+        
+            for row_number, row_data in enumerate(productos):
+                self.tableWidget_stock.insertRow(row_number)
+                for column_number, data in enumerate(row_data):
+                    self.tableWidget_stock.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+                
+            QMessageBox.information(self, "Actualizado", "Stock actualizado correctamente.")
+        except Exception as e:
+            QMessageBox.critical(self, "Error al actualizar", f"Se produjo un error al actualizar el stock: {str(e)}")
+        finally:
+            cursor.close()
+            conexion.close()
+    
+    def refrescar_ventas (self): 
+           
+          conexion = sqlite3.connect("Base de datos proyecto.db")
+          cursor = conexion.cursor()
+          
+          try:
+                cursor.execute("SELECT * FROM ventas")
+                ventas = cursor.fetchall()
+        
+                self.tableWidget_ventas.setRowCount(0)  # Limpiar la tabla antes de añadir nuevas filas
+        
+                for row_number, row_data in enumerate(ventas):
+                    self.tableWidget_ventas.insertRow(row_number)
+                    for column_number, data in enumerate(row_data):
+                        self.tableWidget_ventas.setItem(row_number, column_number, QTableWidgetItem(str(data)))
+                
+                QMessageBox.information(self, "Actualizado", "Información de ventas actualizada correctamente.")
+          except Exception as e:
+                QMessageBox.critical(self, "Error al actualizar", f"Se produjo un error al actualizar las ventas: {str(e)}")
+          finally:
+                cursor.close()
+                conexion.close()
+        
     def salir(self):
         self.close()
         # Cierra la ventana actual. Este método es llamado cuando se hace clic en el botón 'regresar' en la interfaz gráfica. Cierra la ventana actual.

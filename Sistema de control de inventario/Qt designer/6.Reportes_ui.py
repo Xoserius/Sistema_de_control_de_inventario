@@ -156,9 +156,9 @@ class Ui_MainWindow(object):
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_13.addItem(spacerItem1)
-        self.pushButton_refrescar_stock_danados_2 = QtWidgets.QPushButton(parent=self.page_stock)
-        self.pushButton_refrescar_stock_danados_2.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_refrescar_stock_danados_2.setStyleSheet("\n"
+        self.pushButton_refrescar_stock = QtWidgets.QPushButton(parent=self.page_stock)
+        self.pushButton_refrescar_stock.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_refrescar_stock.setStyleSheet("\n"
 "QPushButton{\n"
 "background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
 "border-radius: 10px;\n"
@@ -171,8 +171,8 @@ class Ui_MainWindow(object):
 "font: 12pt \"Sans Serif\";\n"
 "color: rgb(255, 255, 254);\n"
 "}")
-        self.pushButton_refrescar_stock_danados_2.setObjectName("pushButton_refrescar_stock_danados_2")
-        self.horizontalLayout_13.addWidget(self.pushButton_refrescar_stock_danados_2)
+        self.pushButton_refrescar_stock.setObjectName("pushButton_refrescar_stock")
+        self.horizontalLayout_13.addWidget(self.pushButton_refrescar_stock)
         self.verticalLayout_6.addLayout(self.horizontalLayout_13)
         self.horizontalLayout_6 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_6.setObjectName("horizontalLayout_6")
@@ -301,7 +301,7 @@ class Ui_MainWindow(object):
         self.tableWidget_ventas = QtWidgets.QTableWidget(parent=self.page_ventas)
         self.tableWidget_ventas.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tableWidget_ventas.setObjectName("tableWidget_ventas")
-        self.tableWidget_ventas.setColumnCount(5)
+        self.tableWidget_ventas.setColumnCount(6)
         self.tableWidget_ventas.setRowCount(0)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_ventas.setHorizontalHeaderItem(0, item)
@@ -313,6 +313,8 @@ class Ui_MainWindow(object):
         self.tableWidget_ventas.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_ventas.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_ventas.setHorizontalHeaderItem(5, item)
         self.verticalLayout_7.addWidget(self.tableWidget_ventas)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
@@ -342,7 +344,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -364,7 +366,7 @@ class Ui_MainWindow(object):
         item.setText(_translate("MainWindow", "Precio $"))
         item = self.tableWidget_stock.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Cantidad"))
-        self.pushButton_refrescar_stock_danados_2.setText(_translate("MainWindow", "Actualizar"))
+        self.pushButton_refrescar_stock.setText(_translate("MainWindow", "Actualizar"))
         self.label_stock_danados.setText(_translate("MainWindow", "STOCK DAÑADOS"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow", "SKU"))
@@ -391,13 +393,15 @@ class Ui_MainWindow(object):
         self.pushButton_refrescar_stock_vencidos.setText(_translate("MainWindow", "Actualizar"))
         self.label_stock_4.setText(_translate("MainWindow", "VENTAS"))
         item = self.tableWidget_ventas.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "SKU"))
+        item.setText(_translate("MainWindow", "ID"))
         item = self.tableWidget_ventas.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Codigo de Barra"))
+        item.setText(_translate("MainWindow", "Fecha"))
         item = self.tableWidget_ventas.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Descripción"))
+        item.setText(_translate("MainWindow", "Sku de producto"))
         item = self.tableWidget_ventas.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Precio $"))
+        item.setText(_translate("MainWindow", "Codigo de barra de producto"))
         item = self.tableWidget_ventas.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow", "Cantidad"))
+        item = self.tableWidget_ventas.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow", "Descripcion de producto"))
         self.pushButton_refrescar_ventas.setText(_translate("MainWindow", "Actualizar"))
