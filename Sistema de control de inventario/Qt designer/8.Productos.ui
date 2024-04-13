@@ -196,11 +196,8 @@ background-color: #000000ff;
 }
 
 QTableWidget{
-background-color: rgb(255, 255, 255);
-	color: rgb(0, 0, 0);
-	gridline-color: rgb(206, 0, 55);
-font-size: 12px;
-color: #000000;
+
+
 }
 
 QHeaderView::section {
@@ -361,24 +358,53 @@ border: 2px solid rgb(225, 85, 88)
                   <number>50</number>
                  </property>
                  <item row="5" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_sku">
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                  <widget class="QTableWidget" name="tableWidget_eliminar">
+                   <property name="styleSheet">
+                    <string notr="true">background-color: rgb(255, 255, 255);
+
+border-color: rgb(255, 255, 255);
+
+border-radius: 0px;</string>
                    </property>
-                   <property name="placeholderText">
-                    <string>SKU</string>
-                   </property>
+                   <column>
+                    <property name="text">
+                     <string>SKU</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Codigo de barras</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Descripción</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Precio $</string>
+                    </property>
+                   </column>
+                   <column>
+                    <property name="text">
+                     <string>Cantidad</string>
+                    </property>
+                   </column>
                   </widget>
                  </item>
-                 <item row="6" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_codigodebarra">
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
+                 <item row="1" column="3">
+                  <spacer name="horizontalSpacer_9">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
                    </property>
-                   <property name="placeholderText">
-                    <string>Codigo de Barra</string>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>77</width>
+                     <height>20</height>
+                    </size>
                    </property>
-                  </widget>
+                  </spacer>
                  </item>
                  <item row="1" column="1" colspan="2">
                   <widget class="QLabel" name="label_imagnedeusuario_2">
@@ -410,62 +436,6 @@ border: 2px solid rgb(225, 85, 88)
                   </spacer>
                  </item>
                  <item row="7" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_descripcion">
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Descripción</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="8" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_precio">
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Precio</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="1" column="3">
-                  <spacer name="horizontalSpacer_9">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>77</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="4" column="0" colspan="4">
-                  <widget class="QPushButton" name="pushButton_buscar_eliminar">
-                   <property name="minimumSize">
-                    <size>
-                     <width>130</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Buscar</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="9" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_cantidad">
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Cantidad</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="10" column="0" colspan="4">
                   <widget class="QPushButton" name="pushButton_eliminar_eliminar">
                    <property name="minimumSize">
                     <size>
@@ -483,6 +453,19 @@ color: rgb(255, 255, 254);
                    </property>
                    <property name="text">
                     <string>Eliminar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="0" colspan="4">
+                  <widget class="QPushButton" name="pushButton_buscar_eliminar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>130</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Buscar</string>
                    </property>
                   </widget>
                  </item>

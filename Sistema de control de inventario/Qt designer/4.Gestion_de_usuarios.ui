@@ -313,7 +313,7 @@ border: 1px solid rgb(0, 206, 151);
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>3</number>
+             <number>0</number>
             </property>
             <widget class="QWidget" name="page_usuarios">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -616,7 +616,7 @@ border:0px;</string>
                   </widget>
                  </item>
                  <item>
-                  <widget class="QPushButton" name="pushButton_buscar_actualizarusuarios">
+                  <widget class="QPushButton" name="pushButton_buscar_usu">
                    <property name="minimumSize">
                     <size>
                      <width>130</width>

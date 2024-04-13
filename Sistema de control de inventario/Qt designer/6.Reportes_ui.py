@@ -137,6 +137,7 @@ class Ui_MainWindow(object):
         self.label_stock.setObjectName("label_stock")
         self.verticalLayout_6.addWidget(self.label_stock)
         self.tableWidget_stock = QtWidgets.QTableWidget(parent=self.page_stock)
+        self.tableWidget_stock.setStyleSheet("")
         self.tableWidget_stock.setObjectName("tableWidget_stock")
         self.tableWidget_stock.setColumnCount(5)
         self.tableWidget_stock.setRowCount(0)
@@ -341,7 +342,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

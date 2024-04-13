@@ -234,7 +234,7 @@ border: 1px solid rgb(0, 206, 151);
           <string notr="true"/>
          </property>
          <property name="currentIndex">
-          <number>3</number>
+          <number>0</number>
          </property>
          <widget class="QWidget" name="page_stock">
           <property name="minimumSize">
@@ -265,6 +265,9 @@ border: 1px solid rgb(0, 206, 151);
            </item>
            <item>
             <widget class="QTableWidget" name="tableWidget_stock">
+             <property name="styleSheet">
+              <string notr="true"/>
+             </property>
              <column>
               <property name="text">
                <string>SKU</string>

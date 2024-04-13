@@ -299,10 +299,10 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.lineEdit_cedulabuscar_actualizarusuarios.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_cedulabuscar_actualizarusuarios.setObjectName("lineEdit_cedulabuscar_actualizarusuarios")
         self.verticalLayout_4.addWidget(self.lineEdit_cedulabuscar_actualizarusuarios)
-        self.pushButton_buscar_actualizarusuarios = QtWidgets.QPushButton(parent=self.frame_actualizardatosdeusuarios)
-        self.pushButton_buscar_actualizarusuarios.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_buscar_actualizarusuarios.setObjectName("pushButton_buscar_actualizarusuarios")
-        self.verticalLayout_4.addWidget(self.pushButton_buscar_actualizarusuarios)
+        self.pushButton_buscar_usu = QtWidgets.QPushButton(parent=self.frame_actualizardatosdeusuarios)
+        self.pushButton_buscar_usu.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_buscar_usu.setObjectName("pushButton_buscar_usu")
+        self.verticalLayout_4.addWidget(self.pushButton_buscar_usu)
         self.lineEdit_nombre_actualizarusuarios = QtWidgets.QLineEdit(parent=self.frame_actualizardatosdeusuarios)
         self.lineEdit_nombre_actualizarusuarios.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_nombre_actualizarusuarios.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
@@ -649,7 +649,7 @@ class Ui_MainWindow_gestiondeusuarios(object):
         MainWindow_gestiondeusuarios.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_gestiondeusuarios)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_gestiondeusuarios)
 
     def retranslateUi(self, MainWindow_gestiondeusuarios):
@@ -678,7 +678,7 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.pushButton_refrescar.setText(_translate("MainWindow_gestiondeusuarios", "Actualizar"))
         self.label_actualizarusuarios.setText(_translate("MainWindow_gestiondeusuarios", "ACTUALIZAR DATOS DE USUARIO"))
         self.lineEdit_cedulabuscar_actualizarusuarios.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Cédula"))
-        self.pushButton_buscar_actualizarusuarios.setText(_translate("MainWindow_gestiondeusuarios", "Buscar"))
+        self.pushButton_buscar_usu.setText(_translate("MainWindow_gestiondeusuarios", "Buscar"))
         self.lineEdit_nombre_actualizarusuarios.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Nombre"))
         self.lineEdit_apellido_actualizarusuarios.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Apellido"))
         self.lineEdit_telefono_actualizarusuarios.setPlaceholderText(_translate("MainWindow_gestiondeusuarios", "Teléfono"))

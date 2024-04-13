@@ -89,11 +89,8 @@ class Ui_MainWindow_productos(object):
 "}\n"
 "\n"
 "QTableWidget{\n"
-"background-color: rgb(255, 255, 255);\n"
-"    color: rgb(0, 0, 0);\n"
-"    gridline-color: rgb(206, 0, 55);\n"
-"font-size: 12px;\n"
-"color: #000000;\n"
+"\n"
+"\n"
 "}\n"
 "\n"
 "QHeaderView::section {\n"
@@ -199,40 +196,36 @@ class Ui_MainWindow_productos(object):
         self.gridLayout_2 = QtWidgets.QGridLayout(self.frame_busquedadeusuarios_3)
         self.gridLayout_2.setContentsMargins(-1, -1, -1, 50)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        self.lineEdit_sku = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_sku.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_sku.setObjectName("lineEdit_sku")
-        self.gridLayout_2.addWidget(self.lineEdit_sku, 5, 0, 1, 4)
-        self.lineEdit_codigodebarra = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_codigodebarra.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_codigodebarra.setObjectName("lineEdit_codigodebarra")
-        self.gridLayout_2.addWidget(self.lineEdit_codigodebarra, 6, 0, 1, 4)
+        self.tableWidget_eliminar = QtWidgets.QTableWidget(parent=self.frame_busquedadeusuarios_3)
+        self.tableWidget_eliminar.setStyleSheet("background-color: rgb(255, 255, 255);\n"
+"\n"
+"border-color: rgb(255, 255, 255);\n"
+"\n"
+"border-radius: 0px;")
+        self.tableWidget_eliminar.setObjectName("tableWidget_eliminar")
+        self.tableWidget_eliminar.setColumnCount(5)
+        self.tableWidget_eliminar.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_eliminar.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_eliminar.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_eliminar.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_eliminar.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_eliminar.setHorizontalHeaderItem(4, item)
+        self.gridLayout_2.addWidget(self.tableWidget_eliminar, 5, 0, 1, 4)
+        spacerItem2 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_2.addItem(spacerItem2, 1, 3, 1, 1)
         self.label_imagnedeusuario_2 = QtWidgets.QLabel(parent=self.frame_busquedadeusuarios_3)
         self.label_imagnedeusuario_2.setMinimumSize(QtCore.QSize(347, 280))
         self.label_imagnedeusuario_2.setStyleSheet("border-image: url(:/Usuario/6326055.png);")
         self.label_imagnedeusuario_2.setText("")
         self.label_imagnedeusuario_2.setObjectName("label_imagnedeusuario_2")
         self.gridLayout_2.addWidget(self.label_imagnedeusuario_2, 1, 1, 1, 2)
-        spacerItem2 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_2.addItem(spacerItem2, 1, 0, 1, 1)
-        self.lineEdit_descripcion = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_descripcion.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_descripcion.setObjectName("lineEdit_descripcion")
-        self.gridLayout_2.addWidget(self.lineEdit_descripcion, 7, 0, 1, 4)
-        self.lineEdit_precio = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_precio.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_precio.setObjectName("lineEdit_precio")
-        self.gridLayout_2.addWidget(self.lineEdit_precio, 8, 0, 1, 4)
         spacerItem3 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_2.addItem(spacerItem3, 1, 3, 1, 1)
-        self.pushButton_buscar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
-        self.pushButton_buscar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_buscar_eliminar.setObjectName("pushButton_buscar_eliminar")
-        self.gridLayout_2.addWidget(self.pushButton_buscar_eliminar, 4, 0, 1, 4)
-        self.lineEdit_cantidad = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_cantidad.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_cantidad.setObjectName("lineEdit_cantidad")
-        self.gridLayout_2.addWidget(self.lineEdit_cantidad, 9, 0, 1, 4)
+        self.gridLayout_2.addItem(spacerItem3, 1, 0, 1, 1)
         self.pushButton_eliminar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
         self.pushButton_eliminar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
         self.pushButton_eliminar_eliminar.setStyleSheet("QPushButton:hover{\n"
@@ -242,7 +235,11 @@ class Ui_MainWindow_productos(object):
 "color: rgb(255, 255, 254);\n"
 "}")
         self.pushButton_eliminar_eliminar.setObjectName("pushButton_eliminar_eliminar")
-        self.gridLayout_2.addWidget(self.pushButton_eliminar_eliminar, 10, 0, 1, 4)
+        self.gridLayout_2.addWidget(self.pushButton_eliminar_eliminar, 7, 0, 1, 4)
+        self.pushButton_buscar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
+        self.pushButton_buscar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_buscar_eliminar.setObjectName("pushButton_buscar_eliminar")
+        self.gridLayout_2.addWidget(self.pushButton_buscar_eliminar, 4, 0, 1, 4)
         self.label_eliminar_Producto = QtWidgets.QLabel(parent=self.frame_busquedadeusuarios_3)
         font = QtGui.QFont()
         font.setFamily("Impact")
@@ -421,13 +418,18 @@ class Ui_MainWindow_productos(object):
         self.pushButton_anadir_in.setText(_translate("MainWindow_productos", "Añadir"))
         self.pushButton_eliminar_su.setText(_translate("MainWindow_productos", "Eliminar"))
         self.pushButton_regresar.setText(_translate("MainWindow_productos", "Regresar"))
-        self.lineEdit_sku.setPlaceholderText(_translate("MainWindow_productos", "SKU"))
-        self.lineEdit_codigodebarra.setPlaceholderText(_translate("MainWindow_productos", "Codigo de Barra"))
-        self.lineEdit_descripcion.setPlaceholderText(_translate("MainWindow_productos", "Descripción"))
-        self.lineEdit_precio.setPlaceholderText(_translate("MainWindow_productos", "Precio"))
-        self.pushButton_buscar_eliminar.setText(_translate("MainWindow_productos", "Buscar"))
-        self.lineEdit_cantidad.setPlaceholderText(_translate("MainWindow_productos", "Cantidad"))
+        item = self.tableWidget_eliminar.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow_productos", "SKU"))
+        item = self.tableWidget_eliminar.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow_productos", "Codigo de barras"))
+        item = self.tableWidget_eliminar.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow_productos", "Descripción"))
+        item = self.tableWidget_eliminar.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow_productos", "Precio $"))
+        item = self.tableWidget_eliminar.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow_productos", "Cantidad"))
         self.pushButton_eliminar_eliminar.setText(_translate("MainWindow_productos", "Eliminar"))
+        self.pushButton_buscar_eliminar.setText(_translate("MainWindow_productos", "Buscar"))
         self.label_eliminar_Producto.setText(_translate("MainWindow_productos", "ELIMINAR PRODUCTO"))
         self.lineEdit_sku_buscar_eliminar.setPlaceholderText(_translate("MainWindow_productos", "Sku"))
         self.lineEdit_Sku_anadir.setPlaceholderText(_translate("MainWindow_productos", "SKU"))
