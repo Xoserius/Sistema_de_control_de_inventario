@@ -313,7 +313,7 @@ border: 1px solid rgb(0, 206, 151);
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>0</number>
+             <number>3</number>
             </property>
             <widget class="QWidget" name="page_usuarios">
              <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -1147,40 +1147,8 @@ border: 2px solid rgb(119, 255, 119)
                 </property>
                 <layout class="QGridLayout" name="gridLayout">
                  <property name="bottomMargin">
-                  <number>50</number>
+                  <number>25</number>
                  </property>
-                 <item row="2" column="0" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_nombre_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Nombre</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="6" column="1">
-                  <widget class="QLineEdit" name="lineEdit_clave_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Clave</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="1" column="0" colspan="2">
                   <widget class="QLabel" name="label_imagendeusuarios_1">
                    <property name="minimumSize">
@@ -1197,7 +1165,46 @@ border: 2px solid rgb(119, 255, 119)
                    </property>
                   </widget>
                  </item>
-                 <item row="8" column="0" colspan="2">
+                 <item row="9" column="1">
+                  <widget class="QLineEdit" name="lineEdit_clave_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Clave</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="10" column="0" colspan="2">
+                  <widget class="QComboBox" name="comboBox_permiso">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="maxCount">
+                    <number>2</number>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>Personal Base</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>Supervisor</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="11" column="0" colspan="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_3">
                    <item>
                     <widget class="QPushButton" name="pushButton_limpiar_registrodeusuario">
@@ -1235,96 +1242,6 @@ color: rgb(255, 255, 254);
                    </item>
                   </layout>
                  </item>
-                 <item row="5" column="0" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_apellido_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Apellido</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="7" column="0" colspan="2">
-                  <widget class="QComboBox" name="comboBox_permiso">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="maxCount">
-                    <number>2</number>
-                   </property>
-                   <item>
-                    <property name="text">
-                     <string>Personal Base</string>
-                    </property>
-                   </item>
-                   <item>
-                    <property name="text">
-                     <string>Supervisor</string>
-                    </property>
-                   </item>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_telefono_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Teléfono</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="6" column="0">
-                  <widget class="QLineEdit" name="lineEdit_usuario_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Usuario</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_cedula_registrodeusuario">
-                   <property name="minimumSize">
-                    <size>
-                     <width>30</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Cédula</string>
-                   </property>
-                  </widget>
-                 </item>
                  <item row="0" column="0" colspan="2">
                   <widget class="QLabel" name="label_registrodeusuario">
                    <property name="minimumSize">
@@ -1357,6 +1274,102 @@ border:0px;</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_telefono_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Teléfono</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="9" column="0">
+                  <widget class="QLineEdit" name="lineEdit_usuario_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Usuario</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_nombre_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Nombre</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="2" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_cedula_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>30</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Cédula</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QPushButton" name="pushButton_buscar_anadir_usu">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Buscar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="6" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_apellido_registrodeusuario">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Apellido</string>
                    </property>
                   </widget>
                  </item>

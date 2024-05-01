@@ -12,15 +12,20 @@ from PyQt6 import QtCore, QtGui, QtWidgets
 class Ui_Dialog_login(object):
     def setupUi(self, Dialog_login):
         Dialog_login.setObjectName("Dialog_login")
-        Dialog_login.resize(235, 140)
-        Dialog_login.setMaximumSize(QtCore.QSize(235, 140))
-        Dialog_login.setStyleSheet("background-color: rgb(22, 22, 26);")
+        Dialog_login.resize(235, 180)
+        Dialog_login.setMaximumSize(QtCore.QSize(235, 180))
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap(":/icp/user.ico"), QtGui.QIcon.Mode.Normal, QtGui.QIcon.State.Off)
+        Dialog_login.setWindowIcon(icon)
+        Dialog_login.setStyleSheet("")
         self.gridLayout = QtWidgets.QGridLayout(Dialog_login)
         self.gridLayout.setContentsMargins(0, 0, 0, 0)
         self.gridLayout.setSpacing(0)
         self.gridLayout.setObjectName("gridLayout")
         self.frame = QtWidgets.QFrame(parent=Dialog_login)
         self.frame.setStyleSheet("\n"
+"\n"
+"\n"
 "\n"
 "QLineEdit{\n"
 "background-color: rgb(22, 22, 26);\n"
@@ -55,6 +60,10 @@ class Ui_Dialog_login(object):
 "color: rgb(255, 255, 254);\n"
 "}\n"
 "\n"
+"QFrame{\n"
+"background-color: rgb(22, 22, 26);\n"
+"}\n"
+"\n"
 "\n"
 "")
         self.frame.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
@@ -62,29 +71,32 @@ class Ui_Dialog_login(object):
         self.frame.setObjectName("frame")
         self.gridLayout_2 = QtWidgets.QGridLayout(self.frame)
         self.gridLayout_2.setObjectName("gridLayout_2")
-        spacerItem = QtWidgets.QSpacerItem(20, 3, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_2.addItem(spacerItem, 1, 0, 1, 1)
-        self.pushButton_aceptar = QtWidgets.QPushButton(parent=self.frame)
-        self.pushButton_aceptar.setMinimumSize(QtCore.QSize(110, 30))
-        self.pushButton_aceptar.setStyleSheet("")
-        self.pushButton_aceptar.setObjectName("pushButton_aceptar")
-        self.gridLayout_2.addWidget(self.pushButton_aceptar, 2, 0, 1, 1)
+        self.pushButton_salir = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButton_salir.setMinimumSize(QtCore.QSize(110, 30))
+        self.pushButton_salir.setStyleSheet("")
+        self.pushButton_salir.setObjectName("pushButton_salir")
+        self.gridLayout_2.addWidget(self.pushButton_salir, 2, 0, 1, 2)
         self.verticalLayout = QtWidgets.QVBoxLayout()
         self.verticalLayout.setContentsMargins(-1, 10, -1, 10)
         self.verticalLayout.setSpacing(10)
         self.verticalLayout.setObjectName("verticalLayout")
         self.lineEdit_usuario = QtWidgets.QLineEdit(parent=self.frame)
-        self.lineEdit_usuario.setMinimumSize(QtCore.QSize(151, 20))
+        self.lineEdit_usuario.setMinimumSize(QtCore.QSize(151, 30))
         self.lineEdit_usuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_usuario.setObjectName("lineEdit_usuario")
         self.verticalLayout.addWidget(self.lineEdit_usuario)
         self.lineEdit_clave = QtWidgets.QLineEdit(parent=self.frame)
-        self.lineEdit_clave.setMinimumSize(QtCore.QSize(151, 20))
+        self.lineEdit_clave.setMinimumSize(QtCore.QSize(151, 30))
         self.lineEdit_clave.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_clave.setDragEnabled(False)
         self.lineEdit_clave.setObjectName("lineEdit_clave")
         self.verticalLayout.addWidget(self.lineEdit_clave)
-        self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 1)
+        self.gridLayout_2.addLayout(self.verticalLayout, 0, 0, 1, 2)
+        self.pushButton_aceptar = QtWidgets.QPushButton(parent=self.frame)
+        self.pushButton_aceptar.setMinimumSize(QtCore.QSize(110, 30))
+        self.pushButton_aceptar.setStyleSheet("")
+        self.pushButton_aceptar.setObjectName("pushButton_aceptar")
+        self.gridLayout_2.addWidget(self.pushButton_aceptar, 1, 0, 1, 2)
         self.gridLayout.addWidget(self.frame, 0, 0, 1, 1)
 
         self.retranslateUi(Dialog_login)
@@ -93,6 +105,7 @@ class Ui_Dialog_login(object):
     def retranslateUi(self, Dialog_login):
         _translate = QtCore.QCoreApplication.translate
         Dialog_login.setWindowTitle(_translate("Dialog_login", "Login"))
-        self.pushButton_aceptar.setText(_translate("Dialog_login", "Aceptar"))
+        self.pushButton_salir.setText(_translate("Dialog_login", "Salir"))
         self.lineEdit_usuario.setPlaceholderText(_translate("Dialog_login", "Usuario"))
         self.lineEdit_clave.setPlaceholderText(_translate("Dialog_login", "Clave"))
+        self.pushButton_aceptar.setText(_translate("Dialog_login", "Aceptar"))

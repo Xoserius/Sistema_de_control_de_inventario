@@ -52,20 +52,25 @@ class Ui_MainWindow_productos(object):
         self.frame_superior.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_superior.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_superior.setObjectName("frame_superior")
-        self.horizontalLayout_4 = QtWidgets.QHBoxLayout(self.frame_superior)
-        self.horizontalLayout_4.setObjectName("horizontalLayout_4")
+        self.horizontalLayout = QtWidgets.QHBoxLayout(self.frame_superior)
+        self.horizontalLayout.setObjectName("horizontalLayout")
         self.pushButton_anadir_in = QtWidgets.QPushButton(parent=self.frame_superior)
         self.pushButton_anadir_in.setMinimumSize(QtCore.QSize(126, 30))
         self.pushButton_anadir_in.setStyleSheet("")
         self.pushButton_anadir_in.setObjectName("pushButton_anadir_in")
-        self.horizontalLayout_4.addWidget(self.pushButton_anadir_in)
+        self.horizontalLayout.addWidget(self.pushButton_anadir_in)
         self.pushButton_eliminar_su = QtWidgets.QPushButton(parent=self.frame_superior)
         self.pushButton_eliminar_su.setMinimumSize(QtCore.QSize(126, 30))
         self.pushButton_eliminar_su.setStyleSheet("")
         self.pushButton_eliminar_su.setObjectName("pushButton_eliminar_su")
-        self.horizontalLayout_4.addWidget(self.pushButton_eliminar_su)
+        self.horizontalLayout.addWidget(self.pushButton_eliminar_su)
+        self.pushButton_actualizar = QtWidgets.QPushButton(parent=self.frame_superior)
+        self.pushButton_actualizar.setMinimumSize(QtCore.QSize(126, 30))
+        self.pushButton_actualizar.setStyleSheet("")
+        self.pushButton_actualizar.setObjectName("pushButton_actualizar")
+        self.horizontalLayout.addWidget(self.pushButton_actualizar)
         spacerItem = QtWidgets.QSpacerItem(245, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_4.addItem(spacerItem)
+        self.horizontalLayout.addItem(spacerItem)
         self.pushButton_regresar = QtWidgets.QPushButton(parent=self.frame_superior)
         self.pushButton_regresar.setMinimumSize(QtCore.QSize(126, 30))
         self.pushButton_regresar.setStyleSheet("QPushButton:hover{\n"
@@ -75,7 +80,7 @@ class Ui_MainWindow_productos(object):
 "color: rgb(255, 255, 254);\n"
 "}")
         self.pushButton_regresar.setObjectName("pushButton_regresar")
-        self.horizontalLayout_4.addWidget(self.pushButton_regresar)
+        self.horizontalLayout.addWidget(self.pushButton_regresar)
         self.verticalLayout_2.addWidget(self.frame_superior)
         self.frame_inferior = QtWidgets.QFrame(parent=self.frame_fondo)
         self.frame_inferior.setMinimumSize(QtCore.QSize(1080, 720))
@@ -89,8 +94,11 @@ class Ui_MainWindow_productos(object):
 "}\n"
 "\n"
 "QTableWidget{\n"
-"\n"
-"\n"
+"background-color: rgb(255, 255, 255);\n"
+"    color: rgb(0, 0, 0);\n"
+"    gridline-color: rgb(206, 0, 55);\n"
+"font-size: 12px;\n"
+"color: #000000;\n"
 "}\n"
 "\n"
 "QHeaderView::section {\n"
@@ -103,7 +111,7 @@ class Ui_MainWindow_productos(object):
 "\n"
 "}\n"
 "\n"
-"I\n"
+"\n"
 "\n"
 "QTableWidget QTableCornerButton::section {\n"
 "\n"
@@ -128,10 +136,11 @@ class Ui_MainWindow_productos(object):
 "background-color: #0000000ff;\n"
 "}")
         self.page_eliminar.setObjectName("page_eliminar")
-        self.horizontalLayout_7 = QtWidgets.QHBoxLayout(self.page_eliminar)
-        self.horizontalLayout_7.setObjectName("horizontalLayout_7")
+        self.gridLayout_2 = QtWidgets.QGridLayout(self.page_eliminar)
+        self.gridLayout_2.setContentsMargins(-1, 25, -1, 25)
+        self.gridLayout_2.setObjectName("gridLayout_2")
         spacerItem1 = QtWidgets.QSpacerItem(263, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_7.addItem(spacerItem1)
+        self.gridLayout_2.addItem(spacerItem1, 0, 0, 2, 1)
         self.frame_busquedadeusuarios_3 = QtWidgets.QFrame(parent=self.page_eliminar)
         self.frame_busquedadeusuarios_3.setMinimumSize(QtCore.QSize(541, 651))
         self.frame_busquedadeusuarios_3.setMaximumSize(QtCore.QSize(16777215, 16777215))
@@ -193,9 +202,31 @@ class Ui_MainWindow_productos(object):
         self.frame_busquedadeusuarios_3.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
         self.frame_busquedadeusuarios_3.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_busquedadeusuarios_3.setObjectName("frame_busquedadeusuarios_3")
-        self.gridLayout_2 = QtWidgets.QGridLayout(self.frame_busquedadeusuarios_3)
-        self.gridLayout_2.setContentsMargins(-1, -1, -1, 50)
-        self.gridLayout_2.setObjectName("gridLayout_2")
+        self.gridLayout_3 = QtWidgets.QGridLayout(self.frame_busquedadeusuarios_3)
+        self.gridLayout_3.setObjectName("gridLayout_3")
+        spacerItem2 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_3.addItem(spacerItem2, 6, 0, 1, 1)
+        spacerItem3 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_3.addItem(spacerItem3, 11, 0, 1, 1)
+        spacerItem4 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_3.addItem(spacerItem4, 2, 0, 1, 1)
+        self.label_eliminar_Producto = QtWidgets.QLabel(parent=self.frame_busquedadeusuarios_3)
+        font = QtGui.QFont()
+        font.setFamily("Impact")
+        font.setPointSize(16)
+        self.label_eliminar_Producto.setFont(font)
+        self.label_eliminar_Producto.setStyleSheet("color: rgb(255, 255, 255);\n"
+"\n"
+"border-radius: 0px;\n"
+"\n"
+"border:0px;")
+        self.label_eliminar_Producto.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_eliminar_Producto.setObjectName("label_eliminar_Producto")
+        self.gridLayout_3.addWidget(self.label_eliminar_Producto, 1, 0, 1, 2)
+        self.pushButton_buscar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
+        self.pushButton_buscar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_buscar_eliminar.setObjectName("pushButton_buscar_eliminar")
+        self.gridLayout_3.addWidget(self.pushButton_buscar_eliminar, 5, 0, 1, 2)
         self.tableWidget_eliminar = QtWidgets.QTableWidget(parent=self.frame_busquedadeusuarios_3)
         self.tableWidget_eliminar.setStyleSheet("background-color: rgb(255, 255, 255);\n"
 "\n"
@@ -215,17 +246,28 @@ class Ui_MainWindow_productos(object):
         self.tableWidget_eliminar.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_eliminar.setHorizontalHeaderItem(4, item)
-        self.gridLayout_2.addWidget(self.tableWidget_eliminar, 5, 0, 1, 4)
-        spacerItem2 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_2.addItem(spacerItem2, 1, 3, 1, 1)
+        self.gridLayout_3.addWidget(self.tableWidget_eliminar, 8, 0, 1, 2)
         self.label_imagnedeusuario_2 = QtWidgets.QLabel(parent=self.frame_busquedadeusuarios_3)
         self.label_imagnedeusuario_2.setMinimumSize(QtCore.QSize(347, 280))
         self.label_imagnedeusuario_2.setStyleSheet("border-image: url(:/Usuario/6326055.png);")
         self.label_imagnedeusuario_2.setText("")
         self.label_imagnedeusuario_2.setObjectName("label_imagnedeusuario_2")
-        self.gridLayout_2.addWidget(self.label_imagnedeusuario_2, 1, 1, 1, 2)
-        spacerItem3 = QtWidgets.QSpacerItem(77, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.gridLayout_2.addItem(spacerItem3, 1, 0, 1, 1)
+        self.gridLayout_3.addWidget(self.label_imagnedeusuario_2, 3, 0, 1, 2)
+        self.pushButton_eliminar_limpiar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
+        self.pushButton_eliminar_limpiar.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_eliminar_limpiar.setStyleSheet("QPushButton:hover{\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.727273 rgba(142, 19, 16, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_eliminar_limpiar.setObjectName("pushButton_eliminar_limpiar")
+        self.gridLayout_3.addWidget(self.pushButton_eliminar_limpiar, 9, 0, 1, 2)
+        self.lineEdit_sku_buscar_eliminar = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
+        self.lineEdit_sku_buscar_eliminar.setMinimumSize(QtCore.QSize(200, 30))
+        self.lineEdit_sku_buscar_eliminar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_sku_buscar_eliminar.setObjectName("lineEdit_sku_buscar_eliminar")
+        self.gridLayout_3.addWidget(self.lineEdit_sku_buscar_eliminar, 4, 0, 1, 2)
         self.pushButton_eliminar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
         self.pushButton_eliminar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
         self.pushButton_eliminar_eliminar.setStyleSheet("QPushButton:hover{\n"
@@ -235,34 +277,14 @@ class Ui_MainWindow_productos(object):
 "color: rgb(255, 255, 254);\n"
 "}")
         self.pushButton_eliminar_eliminar.setObjectName("pushButton_eliminar_eliminar")
-        self.gridLayout_2.addWidget(self.pushButton_eliminar_eliminar, 7, 0, 1, 4)
-        self.pushButton_buscar_eliminar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_3)
-        self.pushButton_buscar_eliminar.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_buscar_eliminar.setObjectName("pushButton_buscar_eliminar")
-        self.gridLayout_2.addWidget(self.pushButton_buscar_eliminar, 4, 0, 1, 4)
-        self.label_eliminar_Producto = QtWidgets.QLabel(parent=self.frame_busquedadeusuarios_3)
-        font = QtGui.QFont()
-        font.setFamily("Impact")
-        font.setPointSize(16)
-        self.label_eliminar_Producto.setFont(font)
-        self.label_eliminar_Producto.setStyleSheet("color: rgb(255, 255, 255);\n"
-"\n"
-"border-radius: 0px;\n"
-"\n"
-"border:0px;")
-        self.label_eliminar_Producto.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.label_eliminar_Producto.setObjectName("label_eliminar_Producto")
-        self.gridLayout_2.addWidget(self.label_eliminar_Producto, 0, 0, 1, 4)
-        self.lineEdit_sku_buscar_eliminar = QtWidgets.QLineEdit(parent=self.frame_busquedadeusuarios_3)
-        self.lineEdit_sku_buscar_eliminar.setMinimumSize(QtCore.QSize(200, 30))
-        self.lineEdit_sku_buscar_eliminar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_sku_buscar_eliminar.setObjectName("lineEdit_sku_buscar_eliminar")
-        self.gridLayout_2.addWidget(self.lineEdit_sku_buscar_eliminar, 3, 0, 1, 4)
-        spacerItem4 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
-        self.gridLayout_2.addItem(spacerItem4, 2, 0, 1, 1)
-        self.horizontalLayout_7.addWidget(self.frame_busquedadeusuarios_3)
-        spacerItem5 = QtWidgets.QSpacerItem(262, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_7.addItem(spacerItem5)
+        self.gridLayout_3.addWidget(self.pushButton_eliminar_eliminar, 10, 0, 1, 2)
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_3.addItem(spacerItem5, 0, 0, 1, 1)
+        self.gridLayout_2.addWidget(self.frame_busquedadeusuarios_3, 0, 1, 1, 1)
+        spacerItem6 = QtWidgets.QSpacerItem(262, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout_2.addItem(spacerItem6, 0, 2, 2, 1)
+        spacerItem7 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout_2.addItem(spacerItem7, 1, 1, 1, 1)
         self.stackedWidget.addWidget(self.page_eliminar)
         self.page_anadir = QtWidgets.QWidget()
         self.page_anadir.setStyleSheet("QFrame{\n"
@@ -271,11 +293,11 @@ class Ui_MainWindow_productos(object):
         self.page_anadir.setObjectName("page_anadir")
         self.horizontalLayout_8 = QtWidgets.QHBoxLayout(self.page_anadir)
         self.horizontalLayout_8.setObjectName("horizontalLayout_8")
-        spacerItem6 = QtWidgets.QSpacerItem(261, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem6)
+        spacerItem8 = QtWidgets.QSpacerItem(261, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem8)
         self.frame_registrodeusuarios = QtWidgets.QFrame(parent=self.page_anadir)
         self.frame_registrodeusuarios.setMinimumSize(QtCore.QSize(1, 1))
-        self.frame_registrodeusuarios.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_registrodeusuarios.setMaximumSize(QtCore.QSize(16777215, 660))
         self.frame_registrodeusuarios.setStyleSheet("QLineEdit{\n"
 "background-color: rgb(22, 22, 26);\n"
 "border-radius: 10px;\n"
@@ -333,57 +355,52 @@ class Ui_MainWindow_productos(object):
         self.frame_registrodeusuarios.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_registrodeusuarios.setObjectName("frame_registrodeusuarios")
         self.gridLayout = QtWidgets.QGridLayout(self.frame_registrodeusuarios)
-        self.gridLayout.setContentsMargins(-1, -1, -1, 50)
+        self.gridLayout.setContentsMargins(-1, -1, -1, 10)
         self.gridLayout.setObjectName("gridLayout")
         self.lineEdit_Sku_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
         self.lineEdit_Sku_anadir.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_Sku_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_Sku_anadir.setObjectName("lineEdit_Sku_anadir")
-        self.gridLayout.addWidget(self.lineEdit_Sku_anadir, 2, 0, 1, 2)
-        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
-        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
-        self.pushButton_limpiar_registrodeusuario = QtWidgets.QPushButton(parent=self.frame_registrodeusuarios)
-        self.pushButton_limpiar_registrodeusuario.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_limpiar_registrodeusuario.setStyleSheet("QPushButton:hover{\n"
-"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.727273 rgba(142, 19, 16, 255));\n"
-"border-radius:10px;\n"
-"font: 12pt \"Sans Serif\";\n"
-"color: rgb(255, 255, 254);\n"
-"}")
-        self.pushButton_limpiar_registrodeusuario.setObjectName("pushButton_limpiar_registrodeusuario")
-        self.horizontalLayout_9.addWidget(self.pushButton_limpiar_registrodeusuario)
-        self.pushButton_guardar_registrodeusuario = QtWidgets.QPushButton(parent=self.frame_registrodeusuarios)
-        self.pushButton_guardar_registrodeusuario.setMinimumSize(QtCore.QSize(130, 30))
-        self.pushButton_guardar_registrodeusuario.setObjectName("pushButton_guardar_registrodeusuario")
-        self.horizontalLayout_9.addWidget(self.pushButton_guardar_registrodeusuario)
-        self.gridLayout.addLayout(self.horizontalLayout_9, 7, 0, 1, 2)
+        self.gridLayout.addWidget(self.lineEdit_Sku_anadir, 6, 0, 1, 2)
         self.label_imagendeusuarios_1 = QtWidgets.QLabel(parent=self.frame_registrodeusuarios)
         self.label_imagendeusuarios_1.setMinimumSize(QtCore.QSize(77, 280))
         self.label_imagendeusuarios_1.setStyleSheet("border-image: url(:/Usuario/6326055.png);")
         self.label_imagendeusuarios_1.setText("")
         self.label_imagendeusuarios_1.setObjectName("label_imagendeusuarios_1")
-        self.gridLayout.addWidget(self.label_imagendeusuarios_1, 1, 0, 1, 2)
-        self.lineEdit_cant_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
-        self.lineEdit_cant_anadir.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_cant_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_cant_anadir.setObjectName("lineEdit_cant_anadir")
-        self.gridLayout.addWidget(self.lineEdit_cant_anadir, 6, 0, 1, 1)
-        self.lineEdit_precio_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
-        self.lineEdit_precio_anadir.setMinimumSize(QtCore.QSize(0, 30))
-        self.lineEdit_precio_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
-        self.lineEdit_precio_anadir.setObjectName("lineEdit_precio_anadir")
-        self.gridLayout.addWidget(self.lineEdit_precio_anadir, 5, 0, 1, 2)
+        self.gridLayout.addWidget(self.label_imagendeusuarios_1, 3, 0, 1, 2)
+        self.horizontalLayout_9 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_9.setObjectName("horizontalLayout_9")
+        self.pushButton_limpiar_registrodeproducto = QtWidgets.QPushButton(parent=self.frame_registrodeusuarios)
+        self.pushButton_limpiar_registrodeproducto.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_limpiar_registrodeproducto.setStyleSheet("QPushButton:hover{\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.727273 rgba(142, 19, 16, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_limpiar_registrodeproducto.setObjectName("pushButton_limpiar_registrodeproducto")
+        self.horizontalLayout_9.addWidget(self.pushButton_limpiar_registrodeproducto)
+        self.pushButton_guardar_anadir = QtWidgets.QPushButton(parent=self.frame_registrodeusuarios)
+        self.pushButton_guardar_anadir.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_guardar_anadir.setObjectName("pushButton_guardar_anadir")
+        self.horizontalLayout_9.addWidget(self.pushButton_guardar_anadir)
+        self.gridLayout.addLayout(self.horizontalLayout_9, 12, 0, 1, 2)
         self.lineEdit_descripcion_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
         self.lineEdit_descripcion_anadir.setMinimumSize(QtCore.QSize(0, 30))
         self.lineEdit_descripcion_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_descripcion_anadir.setObjectName("lineEdit_descripcion_anadir")
-        self.gridLayout.addWidget(self.lineEdit_descripcion_anadir, 4, 0, 1, 2)
+        self.gridLayout.addWidget(self.lineEdit_descripcion_anadir, 9, 0, 1, 2)
+        self.lineEdit_precio_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
+        self.lineEdit_precio_anadir.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_precio_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_precio_anadir.setObjectName("lineEdit_precio_anadir")
+        self.gridLayout.addWidget(self.lineEdit_precio_anadir, 10, 0, 1, 2)
         self.lineEdit_codigodebarra_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
         self.lineEdit_codigodebarra_anadir.setMinimumSize(QtCore.QSize(30, 30))
         self.lineEdit_codigodebarra_anadir.setText("")
         self.lineEdit_codigodebarra_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_codigodebarra_anadir.setObjectName("lineEdit_codigodebarra_anadir")
-        self.gridLayout.addWidget(self.lineEdit_codigodebarra_anadir, 3, 0, 1, 2)
+        self.gridLayout.addWidget(self.lineEdit_codigodebarra_anadir, 8, 0, 1, 2)
         self.label_registrodeusuario = QtWidgets.QLabel(parent=self.frame_registrodeusuarios)
         self.label_registrodeusuario.setMinimumSize(QtCore.QSize(500, 40))
         self.label_registrodeusuario.setMaximumSize(QtCore.QSize(16777215, 50))
@@ -398,18 +415,168 @@ class Ui_MainWindow_productos(object):
 "border:0px;")
         self.label_registrodeusuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_registrodeusuario.setObjectName("label_registrodeusuario")
-        self.gridLayout.addWidget(self.label_registrodeusuario, 0, 0, 1, 2)
+        self.gridLayout.addWidget(self.label_registrodeusuario, 1, 0, 1, 2)
+        self.lineEdit_cant_anadir = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
+        self.lineEdit_cant_anadir.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_cant_anadir.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_cant_anadir.setObjectName("lineEdit_cant_anadir")
+        self.gridLayout.addWidget(self.lineEdit_cant_anadir, 11, 0, 1, 2)
+        self.pushButton_buscar_anadir = QtWidgets.QPushButton(parent=self.frame_registrodeusuarios)
+        self.pushButton_buscar_anadir.setMinimumSize(QtCore.QSize(0, 30))
+        self.pushButton_buscar_anadir.setObjectName("pushButton_buscar_anadir")
+        self.gridLayout.addWidget(self.pushButton_buscar_anadir, 7, 0, 1, 2)
+        spacerItem9 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout.addItem(spacerItem9, 4, 1, 1, 1)
+        spacerItem10 = QtWidgets.QSpacerItem(20, 40, QtWidgets.QSizePolicy.Policy.Minimum, QtWidgets.QSizePolicy.Policy.Expanding)
+        self.gridLayout.addItem(spacerItem10, 4, 0, 1, 1)
+        spacerItem11 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout.addItem(spacerItem11, 2, 0, 1, 2)
+        spacerItem12 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.gridLayout.addItem(spacerItem12, 0, 0, 1, 2)
         self.horizontalLayout_8.addWidget(self.frame_registrodeusuarios)
-        spacerItem7 = QtWidgets.QSpacerItem(261, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
-        self.horizontalLayout_8.addItem(spacerItem7)
+        spacerItem13 = QtWidgets.QSpacerItem(261, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_8.addItem(spacerItem13)
         self.stackedWidget.addWidget(self.page_anadir)
+        self.page_actualizardatos = QtWidgets.QWidget()
+        self.page_actualizardatos.setObjectName("page_actualizardatos")
+        self.horizontalLayout_2 = QtWidgets.QHBoxLayout(self.page_actualizardatos)
+        self.horizontalLayout_2.setContentsMargins(-1, 30, -1, 30)
+        self.horizontalLayout_2.setObjectName("horizontalLayout_2")
+        spacerItem14 = QtWidgets.QSpacerItem(337, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem14)
+        self.frame_actualizardatos_prod = QtWidgets.QFrame(parent=self.page_actualizardatos)
+        self.frame_actualizardatos_prod.setEnabled(True)
+        self.frame_actualizardatos_prod.setMinimumSize(QtCore.QSize(370, 640))
+        self.frame_actualizardatos_prod.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.frame_actualizardatos_prod.setStyleSheet("QLineEdit{\n"
+"background-color: rgb(22, 22, 26);\n"
+"border-radius: 10px;\n"
+"font: 12pt \"SansSerif\";\n"
+"color: rgb(255, 255, 254);\n"
+"border: 2px solid rgb(114, 117, 126);}\n"
+"\n"
+"QLineEdit:hover{\n"
+"background-color: rgb(22, 22, 26);\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"border: 2px solid rgb(44, 182, 125); }\n"
+"\n"
+"QLineEdit:focus {\n"
+"background-color: rgb(1, 1, 1);\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"border: 2px solid rgb(127, 90, 240);\n"
+"}\n"
+"\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}\n"
+"\n"
+"QComboBox{\n"
+"background-color: rgb(22, 22, 26);\n"
+"border-radius: 10px;\n"
+"font: 12pt \"SansSerif\";\n"
+"color: rgb(255, 255, 254);\n"
+"border: 2px solid rgb(114, 117, 126);}\n"
+"\n"
+"QComboBox:hover{\n"
+"background-color: rgb(22, 22, 26);\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"border: 2px solid rgb(44, 182, 125); }\n"
+"\n"
+"QFrame{\n"
+"background-color: rgb(0,0,0);\n"
+"border-radius: 10px;\n"
+"border: 2px solid rgb(84, 135, 255)\n"
+"\n"
+"}\n"
+"\n"
+"\n"
+"\n"
+"\n"
+"")
+        self.frame_actualizardatos_prod.setFrameShape(QtWidgets.QFrame.Shape.StyledPanel)
+        self.frame_actualizardatos_prod.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
+        self.frame_actualizardatos_prod.setObjectName("frame_actualizardatos_prod")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.frame_actualizardatos_prod)
+        self.verticalLayout_4.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_4.setSpacing(0)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
+        self.label_actualizarprod = QtWidgets.QLabel(parent=self.frame_actualizardatos_prod)
+        self.label_actualizarprod.setMaximumSize(QtCore.QSize(16777215, 26))
+        font = QtGui.QFont()
+        font.setFamily("Impact")
+        font.setPointSize(16)
+        self.label_actualizarprod.setFont(font)
+        self.label_actualizarprod.setStyleSheet("color: rgb(255, 255, 255);\n"
+"\n"
+"border-radius: 0px;\n"
+"\n"
+"border:0px;")
+        self.label_actualizarprod.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_actualizarprod.setObjectName("label_actualizarprod")
+        self.verticalLayout_4.addWidget(self.label_actualizarprod)
+        self.label_img_prod = QtWidgets.QLabel(parent=self.frame_actualizardatos_prod)
+        self.label_img_prod.setMinimumSize(QtCore.QSize(200, 200))
+        self.label_img_prod.setMaximumSize(QtCore.QSize(16777215, 200))
+        self.label_img_prod.setWhatsThis("")
+        self.label_img_prod.setStyleSheet("border-image: url(:/Usuario/6326055.png);")
+        self.label_img_prod.setText("")
+        self.label_img_prod.setObjectName("label_img_prod")
+        self.verticalLayout_4.addWidget(self.label_img_prod)
+        self.lineEdit_skubuscar_actualizar = QtWidgets.QLineEdit(parent=self.frame_actualizardatos_prod)
+        self.lineEdit_skubuscar_actualizar.setMinimumSize(QtCore.QSize(200, 30))
+        self.lineEdit_skubuscar_actualizar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_skubuscar_actualizar.setObjectName("lineEdit_skubuscar_actualizar")
+        self.verticalLayout_4.addWidget(self.lineEdit_skubuscar_actualizar)
+        self.pushButton_buscar_sku = QtWidgets.QPushButton(parent=self.frame_actualizardatos_prod)
+        self.pushButton_buscar_sku.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_buscar_sku.setObjectName("pushButton_buscar_sku")
+        self.verticalLayout_4.addWidget(self.pushButton_buscar_sku)
+        self.lineEdit_cb_actualizar = QtWidgets.QLineEdit(parent=self.frame_actualizardatos_prod)
+        self.lineEdit_cb_actualizar.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_cb_actualizar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_cb_actualizar.setObjectName("lineEdit_cb_actualizar")
+        self.verticalLayout_4.addWidget(self.lineEdit_cb_actualizar)
+        self.lineEdit_descrp_actualizar = QtWidgets.QLineEdit(parent=self.frame_actualizardatos_prod)
+        self.lineEdit_descrp_actualizar.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_descrp_actualizar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_descrp_actualizar.setObjectName("lineEdit_descrp_actualizar")
+        self.verticalLayout_4.addWidget(self.lineEdit_descrp_actualizar)
+        self.lineEdit_precio_actualizar = QtWidgets.QLineEdit(parent=self.frame_actualizardatos_prod)
+        self.lineEdit_precio_actualizar.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_precio_actualizar.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.lineEdit_precio_actualizar.setObjectName("lineEdit_precio_actualizar")
+        self.verticalLayout_4.addWidget(self.lineEdit_precio_actualizar)
+        self.pushButton_actualizar_prod = QtWidgets.QPushButton(parent=self.frame_actualizardatos_prod)
+        self.pushButton_actualizar_prod.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_actualizar_prod.setObjectName("pushButton_actualizar_prod")
+        self.verticalLayout_4.addWidget(self.pushButton_actualizar_prod)
+        self.pushButton_limpiar_actualizar = QtWidgets.QPushButton(parent=self.frame_actualizardatos_prod)
+        self.pushButton_limpiar_actualizar.setMinimumSize(QtCore.QSize(0, 30))
+        self.pushButton_limpiar_actualizar.setObjectName("pushButton_limpiar_actualizar")
+        self.verticalLayout_4.addWidget(self.pushButton_limpiar_actualizar)
+        self.horizontalLayout_2.addWidget(self.frame_actualizardatos_prod)
+        spacerItem15 = QtWidgets.QSpacerItem(337, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_2.addItem(spacerItem15)
+        self.stackedWidget.addWidget(self.page_actualizardatos)
         self.verticalLayout_3.addWidget(self.stackedWidget)
         self.verticalLayout_2.addWidget(self.frame_inferior)
         self.verticalLayout.addWidget(self.frame_fondo)
         MainWindow_productos.setCentralWidget(self.centralwidget)
 
         self.retranslateUi(MainWindow_productos)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow_productos)
 
     def retranslateUi(self, MainWindow_productos):
@@ -417,7 +584,10 @@ class Ui_MainWindow_productos(object):
         MainWindow_productos.setWindowTitle(_translate("MainWindow_productos", "MainWindow"))
         self.pushButton_anadir_in.setText(_translate("MainWindow_productos", "Añadir"))
         self.pushButton_eliminar_su.setText(_translate("MainWindow_productos", "Eliminar"))
+        self.pushButton_actualizar.setText(_translate("MainWindow_productos", "Actualizar"))
         self.pushButton_regresar.setText(_translate("MainWindow_productos", "Regresar"))
+        self.label_eliminar_Producto.setText(_translate("MainWindow_productos", "ELIMINAR PRODUCTO"))
+        self.pushButton_buscar_eliminar.setText(_translate("MainWindow_productos", "Buscar"))
         item = self.tableWidget_eliminar.horizontalHeaderItem(0)
         item.setText(_translate("MainWindow_productos", "SKU"))
         item = self.tableWidget_eliminar.horizontalHeaderItem(1)
@@ -428,15 +598,23 @@ class Ui_MainWindow_productos(object):
         item.setText(_translate("MainWindow_productos", "Precio $"))
         item = self.tableWidget_eliminar.horizontalHeaderItem(4)
         item.setText(_translate("MainWindow_productos", "Cantidad"))
-        self.pushButton_eliminar_eliminar.setText(_translate("MainWindow_productos", "Eliminar"))
-        self.pushButton_buscar_eliminar.setText(_translate("MainWindow_productos", "Buscar"))
-        self.label_eliminar_Producto.setText(_translate("MainWindow_productos", "ELIMINAR PRODUCTO"))
+        self.pushButton_eliminar_limpiar.setText(_translate("MainWindow_productos", "Limpiar"))
         self.lineEdit_sku_buscar_eliminar.setPlaceholderText(_translate("MainWindow_productos", "Sku"))
+        self.pushButton_eliminar_eliminar.setText(_translate("MainWindow_productos", "Eliminar"))
         self.lineEdit_Sku_anadir.setPlaceholderText(_translate("MainWindow_productos", "SKU"))
-        self.pushButton_limpiar_registrodeusuario.setText(_translate("MainWindow_productos", "Limpiar"))
-        self.pushButton_guardar_registrodeusuario.setText(_translate("MainWindow_productos", "Guardar"))
-        self.lineEdit_cant_anadir.setPlaceholderText(_translate("MainWindow_productos", "Cantidad"))
-        self.lineEdit_precio_anadir.setPlaceholderText(_translate("MainWindow_productos", "Precio"))
+        self.pushButton_limpiar_registrodeproducto.setText(_translate("MainWindow_productos", "Limpiar"))
+        self.pushButton_guardar_anadir.setText(_translate("MainWindow_productos", "Guardar"))
         self.lineEdit_descripcion_anadir.setPlaceholderText(_translate("MainWindow_productos", "Descripción"))
+        self.lineEdit_precio_anadir.setPlaceholderText(_translate("MainWindow_productos", "Precio"))
         self.lineEdit_codigodebarra_anadir.setPlaceholderText(_translate("MainWindow_productos", "Codigo de Barra"))
-        self.label_registrodeusuario.setText(_translate("MainWindow_productos", "AÑADIR PRODUCTO"))
+        self.label_registrodeusuario.setText(_translate("MainWindow_productos", "AÑADIR NUEVO PRODUCTO"))
+        self.lineEdit_cant_anadir.setPlaceholderText(_translate("MainWindow_productos", "Cantidad"))
+        self.pushButton_buscar_anadir.setText(_translate("MainWindow_productos", "Buscar"))
+        self.label_actualizarprod.setText(_translate("MainWindow_productos", "ACTUALIZAR DATOS DE PRODUCTOS"))
+        self.lineEdit_skubuscar_actualizar.setPlaceholderText(_translate("MainWindow_productos", "SKU"))
+        self.pushButton_buscar_sku.setText(_translate("MainWindow_productos", "Buscar"))
+        self.lineEdit_cb_actualizar.setPlaceholderText(_translate("MainWindow_productos", "Codigo de Barras"))
+        self.lineEdit_descrp_actualizar.setPlaceholderText(_translate("MainWindow_productos", "Descripcion"))
+        self.lineEdit_precio_actualizar.setPlaceholderText(_translate("MainWindow_productos", "Precio"))
+        self.pushButton_actualizar_prod.setText(_translate("MainWindow_productos", "Actualizar"))
+        self.pushButton_limpiar_actualizar.setText(_translate("MainWindow_productos", "Limpiar"))

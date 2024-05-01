@@ -184,7 +184,7 @@ class Ui_MainWindow_ingresarventa(object):
         self.lineEdit_fecha_ingresarventa.setMinimumSize(QtCore.QSize(200, 30))
         self.lineEdit_fecha_ingresarventa.setMaxLength(8)
         self.lineEdit_fecha_ingresarventa.setFrame(True)
-        self.lineEdit_fecha_ingresarventa.setCursorPosition(0)
+        self.lineEdit_fecha_ingresarventa.setCursorPosition(8)
         self.lineEdit_fecha_ingresarventa.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_fecha_ingresarventa.setCursorMoveStyle(QtCore.Qt.CursorMoveStyle.LogicalMoveStyle)
         self.lineEdit_fecha_ingresarventa.setObjectName("lineEdit_fecha_ingresarventa")
@@ -205,6 +205,12 @@ class Ui_MainWindow_ingresarventa(object):
         self.verticalLayout_3.addWidget(self.pushButton_enviar)
         self.pushButton_limpiar = QtWidgets.QPushButton(parent=self.frame_busquedadeusuarios_4)
         self.pushButton_limpiar.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_limpiar.setStyleSheet("QPushButton:hover{\n"
+"background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.727273 rgba(142, 19, 16, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
         self.pushButton_limpiar.setObjectName("pushButton_limpiar")
         self.verticalLayout_3.addWidget(self.pushButton_limpiar)
         self.horizontalLayout_11.addWidget(self.frame_busquedadeusuarios_4)

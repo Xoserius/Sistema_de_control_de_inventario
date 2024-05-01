@@ -7,20 +7,24 @@
     <x>0</x>
     <y>0</y>
     <width>235</width>
-    <height>140</height>
+    <height>180</height>
    </rect>
   </property>
   <property name="maximumSize">
    <size>
     <width>235</width>
-    <height>140</height>
+    <height>180</height>
    </size>
   </property>
   <property name="windowTitle">
    <string>Login</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="Recursos/Nuevo documento de texto.qrc">
+    <normaloff>:/icp/user.ico</normaloff>:/icp/user.ico</iconset>
+  </property>
   <property name="styleSheet">
-   <string notr="true">background-color: rgb(22, 22, 26);</string>
+   <string notr="true"/>
   </property>
   <layout class="QGridLayout" name="gridLayout">
    <property name="leftMargin">
@@ -42,6 +46,8 @@
     <widget class="QFrame" name="frame">
      <property name="styleSheet">
       <string notr="true">
+
+
 
 QLineEdit{
 background-color: rgb(22, 22, 26);
@@ -76,6 +82,10 @@ font: 12pt &quot;Sans Serif&quot;;
 color: rgb(255, 255, 254);
 }
 
+QFrame{
+background-color: rgb(22, 22, 26);
+}
+
 
 </string>
      </property>
@@ -86,21 +96,8 @@ color: rgb(255, 255, 254);
       <enum>QFrame::Raised</enum>
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
-      <item row="1" column="0">
-       <spacer name="verticalSpacer_2">
-        <property name="orientation">
-         <enum>Qt::Vertical</enum>
-        </property>
-        <property name="sizeHint" stdset="0">
-         <size>
-          <width>20</width>
-          <height>3</height>
-         </size>
-        </property>
-       </spacer>
-      </item>
-      <item row="2" column="0">
-       <widget class="QPushButton" name="pushButton_aceptar">
+      <item row="2" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_salir">
         <property name="minimumSize">
          <size>
           <width>110</width>
@@ -111,11 +108,11 @@ color: rgb(255, 255, 254);
          <string notr="true"/>
         </property>
         <property name="text">
-         <string>Aceptar</string>
+         <string>Salir</string>
         </property>
        </widget>
       </item>
-      <item row="0" column="0">
+      <item row="0" column="0" colspan="2">
        <layout class="QVBoxLayout" name="verticalLayout">
         <property name="spacing">
          <number>10</number>
@@ -131,7 +128,7 @@ color: rgb(255, 255, 254);
           <property name="minimumSize">
            <size>
             <width>151</width>
-            <height>20</height>
+            <height>30</height>
            </size>
           </property>
           <property name="alignment">
@@ -147,7 +144,7 @@ color: rgb(255, 255, 254);
           <property name="minimumSize">
            <size>
             <width>151</width>
-            <height>20</height>
+            <height>30</height>
            </size>
           </property>
           <property name="alignment">
@@ -163,11 +160,29 @@ color: rgb(255, 255, 254);
         </item>
        </layout>
       </item>
+      <item row="1" column="0" colspan="2">
+       <widget class="QPushButton" name="pushButton_aceptar">
+        <property name="minimumSize">
+         <size>
+          <width>110</width>
+          <height>30</height>
+         </size>
+        </property>
+        <property name="styleSheet">
+         <string notr="true"/>
+        </property>
+        <property name="text">
+         <string>Aceptar</string>
+        </property>
+       </widget>
+      </item>
      </layout>
     </widget>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recursos/Nuevo documento de texto.qrc"/>
+ </resources>
  <connections/>
 </ui>

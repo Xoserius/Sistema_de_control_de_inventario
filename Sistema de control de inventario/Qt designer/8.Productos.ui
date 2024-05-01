@@ -102,7 +102,7 @@ color: rgb(255, 255, 254);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
-         <layout class="QHBoxLayout" name="horizontalLayout_4">
+         <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
            <widget class="QPushButton" name="pushButton_anadir_in">
             <property name="minimumSize">
@@ -132,6 +132,22 @@ color: rgb(255, 255, 254);
             </property>
             <property name="text">
              <string>Eliminar</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_actualizar">
+            <property name="minimumSize">
+             <size>
+              <width>126</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="styleSheet">
+             <string notr="true"/>
+            </property>
+            <property name="text">
+             <string>Actualizar</string>
             </property>
            </widget>
           </item>
@@ -196,8 +212,11 @@ background-color: #000000ff;
 }
 
 QTableWidget{
-
-
+background-color: rgb(255, 255, 255);
+	color: rgb(0, 0, 0);
+	gridline-color: rgb(206, 0, 55);
+font-size: 12px;
+color: #000000;
 }
 
 QHeaderView::section {
@@ -210,7 +229,7 @@ font-size: 12pt;
 
 }
 
-I
+
 
 QTableWidget QTableCornerButton::section {
 
@@ -254,7 +273,7 @@ border: 1px solid rgb(0, 206, 151);
              <string notr="true"/>
             </property>
             <property name="currentIndex">
-             <number>1</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="page_eliminar">
              <property name="styleSheet">
@@ -262,8 +281,14 @@ border: 1px solid rgb(0, 206, 151);
 background-color: #0000000ff;
 }</string>
              </property>
-             <layout class="QHBoxLayout" name="horizontalLayout_7">
-              <item>
+             <layout class="QGridLayout" name="gridLayout_2">
+              <property name="topMargin">
+               <number>25</number>
+              </property>
+              <property name="bottomMargin">
+               <number>25</number>
+              </property>
+              <item row="0" column="0" rowspan="2">
                <spacer name="horizontalSpacer_11">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -276,7 +301,7 @@ background-color: #0000000ff;
                 </property>
                </spacer>
               </item>
-              <item>
+              <item row="0" column="1">
                <widget class="QFrame" name="frame_busquedadeusuarios_3">
                 <property name="minimumSize">
                  <size>
@@ -353,11 +378,83 @@ border: 2px solid rgb(225, 85, 88)
                 <property name="frameShadow">
                  <enum>QFrame::Raised</enum>
                 </property>
-                <layout class="QGridLayout" name="gridLayout_2">
-                 <property name="bottomMargin">
-                  <number>50</number>
-                 </property>
-                 <item row="5" column="0" colspan="4">
+                <layout class="QGridLayout" name="gridLayout_3">
+                 <item row="6" column="0">
+                  <spacer name="verticalSpacer">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="11" column="0">
+                  <spacer name="verticalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0">
+                  <spacer name="horizontalSpacer_9">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>77</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="1" column="0" colspan="2">
+                  <widget class="QLabel" name="label_eliminar_Producto">
+                   <property name="font">
+                    <font>
+                     <family>Impact</family>
+                     <pointsize>16</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+
+border-radius: 0px;
+
+border:0px;</string>
+                   </property>
+                   <property name="text">
+                    <string>ELIMINAR PRODUCTO</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="5" column="0" colspan="2">
+                  <widget class="QPushButton" name="pushButton_buscar_eliminar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>130</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Buscar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
                   <widget class="QTableWidget" name="tableWidget_eliminar">
                    <property name="styleSheet">
                     <string notr="true">background-color: rgb(255, 255, 255);
@@ -393,20 +490,7 @@ border-radius: 0px;</string>
                    </column>
                   </widget>
                  </item>
-                 <item row="1" column="3">
-                  <spacer name="horizontalSpacer_9">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
-                    <size>
-                     <width>77</width>
-                     <height>20</height>
-                    </size>
-                   </property>
-                  </spacer>
-                 </item>
-                 <item row="1" column="1" colspan="2">
+                 <item row="3" column="0" colspan="2">
                   <widget class="QLabel" name="label_imagnedeusuario_2">
                    <property name="minimumSize">
                     <size>
@@ -422,20 +506,44 @@ border-radius: 0px;</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="0">
-                  <spacer name="horizontalSpacer_8">
-                   <property name="orientation">
-                    <enum>Qt::Horizontal</enum>
-                   </property>
-                   <property name="sizeHint" stdset="0">
+                 <item row="9" column="0" colspan="2">
+                  <widget class="QPushButton" name="pushButton_eliminar_limpiar">
+                   <property name="minimumSize">
                     <size>
-                     <width>77</width>
-                     <height>20</height>
+                     <width>130</width>
+                     <height>30</height>
                     </size>
                    </property>
-                  </spacer>
+                   <property name="styleSheet">
+                    <string notr="true">QPushButton:hover{
+background-color: qlineargradient(spread:pad, x1:0, y1:0, x2:1, y2:0, stop:0 rgba(0, 0, 0, 255), stop:0.727273 rgba(142, 19, 16, 255));
+border-radius:10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254);
+}</string>
+                   </property>
+                   <property name="text">
+                    <string>Limpiar</string>
+                   </property>
+                  </widget>
                  </item>
-                 <item row="7" column="0" colspan="4">
+                 <item row="4" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_sku_buscar_eliminar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Sku</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="10" column="0" colspan="2">
                   <widget class="QPushButton" name="pushButton_eliminar_eliminar">
                    <property name="minimumSize">
                     <size>
@@ -456,67 +564,15 @@ color: rgb(255, 255, 254);
                    </property>
                   </widget>
                  </item>
-                 <item row="4" column="0" colspan="4">
-                  <widget class="QPushButton" name="pushButton_buscar_eliminar">
-                   <property name="minimumSize">
-                    <size>
-                     <width>130</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="text">
-                    <string>Buscar</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="0" column="0" colspan="4">
-                  <widget class="QLabel" name="label_eliminar_Producto">
-                   <property name="font">
-                    <font>
-                     <family>Impact</family>
-                     <pointsize>16</pointsize>
-                    </font>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">color: rgb(255, 255, 255);
-
-border-radius: 0px;
-
-border:0px;</string>
-                   </property>
-                   <property name="text">
-                    <string>ELIMINAR PRODUCTO</string>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="3" column="0" colspan="4">
-                  <widget class="QLineEdit" name="lineEdit_sku_buscar_eliminar">
-                   <property name="minimumSize">
-                    <size>
-                     <width>200</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Sku</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="2" column="0">
-                  <spacer name="verticalSpacer">
+                 <item row="0" column="0">
+                  <spacer name="horizontalSpacer">
                    <property name="orientation">
-                    <enum>Qt::Vertical</enum>
+                    <enum>Qt::Horizontal</enum>
                    </property>
                    <property name="sizeHint" stdset="0">
                     <size>
-                     <width>20</width>
-                     <height>40</height>
+                     <width>40</width>
+                     <height>20</height>
                     </size>
                    </property>
                   </spacer>
@@ -524,7 +580,7 @@ border:0px;</string>
                 </layout>
                </widget>
               </item>
-              <item>
+              <item row="0" column="2" rowspan="2">
                <spacer name="horizontalSpacer_12">
                 <property name="orientation">
                  <enum>Qt::Horizontal</enum>
@@ -533,6 +589,19 @@ border:0px;</string>
                  <size>
                   <width>262</width>
                   <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item row="1" column="1">
+               <spacer name="verticalSpacer_3">
+                <property name="orientation">
+                 <enum>Qt::Vertical</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>20</width>
+                  <height>40</height>
                  </size>
                 </property>
                </spacer>
@@ -570,7 +639,7 @@ background-color: #0000000ff;
                 <property name="maximumSize">
                  <size>
                   <width>16777215</width>
-                  <height>16777215</height>
+                  <height>660</height>
                  </size>
                 </property>
                 <property name="styleSheet">
@@ -636,9 +705,9 @@ border: 2px solid rgb(119, 255, 119)
                 </property>
                 <layout class="QGridLayout" name="gridLayout">
                  <property name="bottomMargin">
-                  <number>50</number>
+                  <number>10</number>
                  </property>
-                 <item row="2" column="0" colspan="2">
+                 <item row="6" column="0" colspan="2">
                   <widget class="QLineEdit" name="lineEdit_Sku_anadir">
                    <property name="minimumSize">
                     <size>
@@ -654,10 +723,26 @@ border: 2px solid rgb(119, 255, 119)
                    </property>
                   </widget>
                  </item>
-                 <item row="7" column="0" colspan="2">
+                 <item row="3" column="0" colspan="2">
+                  <widget class="QLabel" name="label_imagendeusuarios_1">
+                   <property name="minimumSize">
+                    <size>
+                     <width>77</width>
+                     <height>280</height>
+                    </size>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border-image: url(:/Usuario/6326055.png);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="12" column="0" colspan="2">
                   <layout class="QHBoxLayout" name="horizontalLayout_9">
                    <item>
-                    <widget class="QPushButton" name="pushButton_limpiar_registrodeusuario">
+                    <widget class="QPushButton" name="pushButton_limpiar_registrodeproducto">
                      <property name="minimumSize">
                       <size>
                        <width>130</width>
@@ -678,7 +763,7 @@ color: rgb(255, 255, 254);
                     </widget>
                    </item>
                    <item>
-                    <widget class="QPushButton" name="pushButton_guardar_registrodeusuario">
+                    <widget class="QPushButton" name="pushButton_guardar_anadir">
                      <property name="minimumSize">
                       <size>
                        <width>130</width>
@@ -692,55 +777,7 @@ color: rgb(255, 255, 254);
                    </item>
                   </layout>
                  </item>
-                 <item row="1" column="0" colspan="2">
-                  <widget class="QLabel" name="label_imagendeusuarios_1">
-                   <property name="minimumSize">
-                    <size>
-                     <width>77</width>
-                     <height>280</height>
-                    </size>
-                   </property>
-                   <property name="styleSheet">
-                    <string notr="true">border-image: url(:/Usuario/6326055.png);</string>
-                   </property>
-                   <property name="text">
-                    <string/>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="6" column="0">
-                  <widget class="QLineEdit" name="lineEdit_cant_anadir">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Cantidad</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="5" column="0" colspan="2">
-                  <widget class="QLineEdit" name="lineEdit_precio_anadir">
-                   <property name="minimumSize">
-                    <size>
-                     <width>0</width>
-                     <height>30</height>
-                    </size>
-                   </property>
-                   <property name="alignment">
-                    <set>Qt::AlignCenter</set>
-                   </property>
-                   <property name="placeholderText">
-                    <string>Precio</string>
-                   </property>
-                  </widget>
-                 </item>
-                 <item row="4" column="0" colspan="2">
+                 <item row="9" column="0" colspan="2">
                   <widget class="QLineEdit" name="lineEdit_descripcion_anadir">
                    <property name="minimumSize">
                     <size>
@@ -756,7 +793,23 @@ color: rgb(255, 255, 254);
                    </property>
                   </widget>
                  </item>
-                 <item row="3" column="0" colspan="2">
+                 <item row="10" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_precio_anadir">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Precio</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="8" column="0" colspan="2">
                   <widget class="QLineEdit" name="lineEdit_codigodebarra_anadir">
                    <property name="minimumSize">
                     <size>
@@ -775,7 +828,7 @@ color: rgb(255, 255, 254);
                    </property>
                   </widget>
                  </item>
-                 <item row="0" column="0" colspan="2">
+                 <item row="1" column="0" colspan="2">
                   <widget class="QLabel" name="label_registrodeusuario">
                    <property name="minimumSize">
                     <size>
@@ -803,12 +856,93 @@ border-radius: 0px;
 border:0px;</string>
                    </property>
                    <property name="text">
-                    <string>AÑADIR PRODUCTO</string>
+                    <string>AÑADIR NUEVO PRODUCTO</string>
                    </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
                   </widget>
+                 </item>
+                 <item row="11" column="0" colspan="2">
+                  <widget class="QLineEdit" name="lineEdit_cant_anadir">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Cantidad</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="7" column="0" colspan="2">
+                  <widget class="QPushButton" name="pushButton_buscar_anadir">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Buscar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="4" column="1">
+                  <spacer name="verticalSpacer_4">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="4" column="0">
+                  <spacer name="verticalSpacer_5">
+                   <property name="orientation">
+                    <enum>Qt::Vertical</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>20</width>
+                     <height>40</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="2" column="0" colspan="2">
+                  <spacer name="horizontalSpacer_2">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
+                 </item>
+                 <item row="0" column="0" colspan="2">
+                  <spacer name="horizontalSpacer_3">
+                   <property name="orientation">
+                    <enum>Qt::Horizontal</enum>
+                   </property>
+                   <property name="sizeHint" stdset="0">
+                    <size>
+                     <width>40</width>
+                     <height>20</height>
+                    </size>
+                   </property>
+                  </spacer>
                  </item>
                 </layout>
                </widget>
@@ -821,6 +955,291 @@ border:0px;</string>
                 <property name="sizeHint" stdset="0">
                  <size>
                   <width>261</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="page_actualizardatos">
+             <layout class="QHBoxLayout" name="horizontalLayout_2">
+              <property name="topMargin">
+               <number>30</number>
+              </property>
+              <property name="bottomMargin">
+               <number>30</number>
+              </property>
+              <item>
+               <spacer name="horizontalSpacer_5">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>337</width>
+                  <height>20</height>
+                 </size>
+                </property>
+               </spacer>
+              </item>
+              <item>
+               <widget class="QFrame" name="frame_actualizardatos_prod">
+                <property name="enabled">
+                 <bool>true</bool>
+                </property>
+                <property name="minimumSize">
+                 <size>
+                  <width>370</width>
+                  <height>640</height>
+                 </size>
+                </property>
+                <property name="maximumSize">
+                 <size>
+                  <width>16777215</width>
+                  <height>16777215</height>
+                 </size>
+                </property>
+                <property name="styleSheet">
+                 <string notr="true">QLineEdit{
+background-color: rgb(22, 22, 26);
+border-radius: 10px;
+font: 12pt &quot;SansSerif&quot;;
+color: rgb(255, 255, 254);
+border: 2px solid rgb(114, 117, 126);}
+
+QLineEdit:hover{
+background-color: rgb(22, 22, 26);
+border-radius: 10px;
+font: 12pt &quot;Sans Serif&quot;;
+border: 2px solid rgb(44, 182, 125); }
+
+QLineEdit:focus {
+background-color: rgb(1, 1, 1);
+border-radius:10px;
+font: 12pt &quot;Sans Serif&quot;;
+border: 2px solid rgb(127, 90, 240);
+}
+
+QPushButton{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));
+border-radius: 10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254); }
+
+QPushButton:hover{
+background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));
+border-radius:10px;
+font: 12pt &quot;Sans Serif&quot;;
+color: rgb(255, 255, 254);
+}
+
+QComboBox{
+background-color: rgb(22, 22, 26);
+border-radius: 10px;
+font: 12pt &quot;SansSerif&quot;;
+color: rgb(255, 255, 254);
+border: 2px solid rgb(114, 117, 126);}
+
+QComboBox:hover{
+background-color: rgb(22, 22, 26);
+border-radius: 10px;
+font: 12pt &quot;Sans Serif&quot;;
+border: 2px solid rgb(44, 182, 125); }
+
+QFrame{
+background-color: rgb(0,0,0);
+border-radius: 10px;
+border: 2px solid rgb(84, 135, 255)
+
+}
+
+
+
+
+</string>
+                </property>
+                <property name="frameShape">
+                 <enum>QFrame::StyledPanel</enum>
+                </property>
+                <property name="frameShadow">
+                 <enum>QFrame::Raised</enum>
+                </property>
+                <layout class="QVBoxLayout" name="verticalLayout_4">
+                 <property name="spacing">
+                  <number>0</number>
+                 </property>
+                 <property name="bottomMargin">
+                  <number>0</number>
+                 </property>
+                 <item>
+                  <widget class="QLabel" name="label_actualizarprod">
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>26</height>
+                    </size>
+                   </property>
+                   <property name="font">
+                    <font>
+                     <family>Impact</family>
+                     <pointsize>16</pointsize>
+                    </font>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">color: rgb(255, 255, 255);
+
+border-radius: 0px;
+
+border:0px;</string>
+                   </property>
+                   <property name="text">
+                    <string>ACTUALIZAR DATOS DE PRODUCTOS</string>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLabel" name="label_img_prod">
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="maximumSize">
+                    <size>
+                     <width>16777215</width>
+                     <height>200</height>
+                    </size>
+                   </property>
+                   <property name="whatsThis">
+                    <string/>
+                   </property>
+                   <property name="styleSheet">
+                    <string notr="true">border-image: url(:/Usuario/6326055.png);</string>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_skubuscar_actualizar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>200</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>SKU</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_buscar_sku">
+                   <property name="minimumSize">
+                    <size>
+                     <width>130</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Buscar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_cb_actualizar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Codigo de Barras</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_descrp_actualizar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Descripcion</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QLineEdit" name="lineEdit_precio_actualizar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="alignment">
+                    <set>Qt::AlignCenter</set>
+                   </property>
+                   <property name="placeholderText">
+                    <string>Precio</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_actualizar_prod">
+                   <property name="minimumSize">
+                    <size>
+                     <width>130</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Actualizar</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="pushButton_limpiar_actualizar">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>30</height>
+                    </size>
+                   </property>
+                   <property name="text">
+                    <string>Limpiar</string>
+                   </property>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+              <item>
+               <spacer name="horizontalSpacer_6">
+                <property name="orientation">
+                 <enum>Qt::Horizontal</enum>
+                </property>
+                <property name="sizeHint" stdset="0">
+                 <size>
+                  <width>337</width>
                   <height>20</height>
                  </size>
                 </property>

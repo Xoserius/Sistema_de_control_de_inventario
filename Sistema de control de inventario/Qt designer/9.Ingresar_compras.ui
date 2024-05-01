@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ui version="4.0">
- <class>MainWindow_ingresarventa</class>
- <widget class="QMainWindow" name="MainWindow_ingresarventa">
+ <class>MainWindow_ingresarcompra</class>
+ <widget class="QMainWindow" name="MainWindow_ingresarcompra">
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -123,7 +123,7 @@ color: rgb(255, 255, 254);
            </spacer>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_regresar_iv">
+           <widget class="QPushButton" name="pushButton_regresar_ic">
             <property name="minimumSize">
              <size>
               <width>126</width>
@@ -278,7 +278,7 @@ border: 2px solid rgb(84, 135, 255)
             </property>
             <layout class="QVBoxLayout" name="verticalLayout_3">
              <item>
-              <widget class="QLabel" name="label_ingresarventa">
+              <widget class="QLabel" name="label_ingresarcompra">
                <property name="maximumSize">
                 <size>
                  <width>16777215</width>
@@ -299,7 +299,7 @@ border-radius: 0px;
 border:0px;</string>
                </property>
                <property name="text">
-                <string>INGRESAR VENTA</string>
+                <string>INGRESAR COMPRA</string>
                </property>
                <property name="alignment">
                 <set>Qt::AlignCenter</set>
@@ -307,7 +307,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_sku_ingresarventa">
+              <widget class="QLineEdit" name="lineEdit_sku_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -323,7 +323,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QPushButton" name="pushButton_buscar_ingresarventa">
+              <widget class="QPushButton" name="pushButton_buscar_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>130</width>
@@ -336,7 +336,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_descripicion_ingresarventa">
+              <widget class="QLineEdit" name="lineEdit_descripicion_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -352,7 +352,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_fecha_ingresarventa">
+              <widget class="QLineEdit" name="lineEdit_fecha_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>200</width>
@@ -386,7 +386,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_cod_ingresarventa">
+              <widget class="QLineEdit" name="lineEdit_cod_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>0</width>
@@ -402,7 +402,7 @@ border:0px;</string>
               </widget>
              </item>
              <item>
-              <widget class="QLineEdit" name="lineEdit_cant_ingresarventa">
+              <widget class="QLineEdit" name="lineEdit_cant_ingresarcompra">
                <property name="minimumSize">
                 <size>
                  <width>0</width>

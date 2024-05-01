@@ -7,7 +7,7 @@
     <x>0</x>
     <y>0</y>
     <width>1080</width>
-    <height>720</height>
+    <height>1047</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -89,58 +89,6 @@ color: rgb(255, 255, 254);
          </property>
          <layout class="QHBoxLayout" name="horizontalLayout">
           <item>
-           <widget class="QPushButton" name="pushButton_gestiondeusuario">
-            <property name="minimumSize">
-             <size>
-              <width>150</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Gestion de Usuario</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_ingresarventa">
-            <property name="minimumSize">
-             <size>
-              <width>138</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Ingresar Venta</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_reportes">
-            <property name="minimumSize">
-             <size>
-              <width>138</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Reportes</string>
-            </property>
-           </widget>
-          </item>
-          <item>
-           <widget class="QPushButton" name="pushButton_anadir_eliminar">
-            <property name="minimumSize">
-             <size>
-              <width>138</width>
-              <height>30</height>
-             </size>
-            </property>
-            <property name="text">
-             <string>Sumar/Restar</string>
-            </property>
-           </widget>
-          </item>
-          <item>
            <widget class="QPushButton" name="pushButton_productos">
             <property name="minimumSize">
              <size>
@@ -154,10 +102,49 @@ color: rgb(255, 255, 254);
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="pushButton_Inventario">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Inventario</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_reportes">
+            <property name="minimumSize">
+             <size>
+              <width>150</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Reportes</string>
+            </property>
+           </widget>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_gestiondeusuario">
+            <property name="minimumSize">
+             <size>
+              <width>160</width>
+              <height>30</height>
+             </size>
+            </property>
+            <property name="text">
+             <string>Gestion de Usuario</string>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QPushButton" name="pushButton_soporte">
             <property name="minimumSize">
              <size>
-              <width>137</width>
+              <width>150</width>
               <height>30</height>
              </size>
             </property>
@@ -183,7 +170,7 @@ color: rgb(255, 255, 254);
            <widget class="QPushButton" name="pushButton_salir_menu">
             <property name="minimumSize">
              <size>
-              <width>101</width>
+              <width>150</width>
               <height>30</height>
              </size>
             </property>
@@ -211,6 +198,42 @@ color: rgb(255, 255, 254);
          <property name="frameShadow">
           <enum>QFrame::Raised</enum>
          </property>
+         <widget class="QLabel" name="label">
+          <property name="geometry">
+           <rect>
+            <x>80</x>
+            <y>0</y>
+            <width>1201</width>
+            <height>661</height>
+           </rect>
+          </property>
+          <property name="whatsThis">
+           <string/>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">image: url(:/Producto/LOGO_POTRO.png);</string>
+          </property>
+          <property name="text">
+           <string/>
+          </property>
+         </widget>
+         <widget class="QLabel" name="label_2">
+          <property name="geometry">
+           <rect>
+            <x>480</x>
+            <y>640</y>
+            <width>421</width>
+            <height>31</height>
+           </rect>
+          </property>
+          <property name="styleSheet">
+           <string notr="true">color: rgb(255, 255, 255);
+font: 12pt &quot;Arial Rounded MT Bold&quot;;</string>
+          </property>
+          <property name="text">
+           <string>2024 José Vásquez. Todos los derechos reservados</string>
+          </property>
+         </widget>
         </widget>
        </item>
       </layout>
@@ -219,6 +242,8 @@ color: rgb(255, 255, 254);
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="Recursos/Nuevo documento de texto.qrc"/>
+ </resources>
  <connections/>
 </ui>

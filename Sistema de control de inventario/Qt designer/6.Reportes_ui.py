@@ -9,13 +9,13 @@
 from PyQt6 import QtCore, QtGui, QtWidgets
 
 
-class Ui_MainWindow(object):
-    def setupUi(self, MainWindow):
-        MainWindow.setObjectName("MainWindow")
-        MainWindow.resize(1120, 800)
-        MainWindow.setMinimumSize(QtCore.QSize(1120, 800))
-        MainWindow.setMaximumSize(QtCore.QSize(16777215, 16777215))
-        self.centralwidget = QtWidgets.QWidget(parent=MainWindow)
+class Ui_MainWindow_Inventario(object):
+    def setupUi(self, MainWindow_Inventario):
+        MainWindow_Inventario.setObjectName("MainWindow_Inventario")
+        MainWindow_Inventario.resize(1120, 800)
+        MainWindow_Inventario.setMinimumSize(QtCore.QSize(1120, 800))
+        MainWindow_Inventario.setMaximumSize(QtCore.QSize(16777215, 16777215))
+        self.centralwidget = QtWidgets.QWidget(parent=MainWindow_Inventario)
         self.centralwidget.setStyleSheet("background-color: rgb(22, 22, 20);\n"
 "\n"
 "")
@@ -63,6 +63,11 @@ class Ui_MainWindow(object):
         self.pushButton_Ventas.setStyleSheet("")
         self.pushButton_Ventas.setObjectName("pushButton_Ventas")
         self.horizontalLayout.addWidget(self.pushButton_Ventas)
+        self.pushButton_compras = QtWidgets.QPushButton(parent=self.frame_superior)
+        self.pushButton_compras.setMinimumSize(QtCore.QSize(126, 30))
+        self.pushButton_compras.setStyleSheet("")
+        self.pushButton_compras.setObjectName("pushButton_compras")
+        self.horizontalLayout.addWidget(self.pushButton_compras)
         spacerItem = QtWidgets.QSpacerItem(245, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout.addItem(spacerItem)
         self.pushButton_regresar_rep = QtWidgets.QPushButton(parent=self.frame_superior)
@@ -116,7 +121,7 @@ class Ui_MainWindow(object):
         self.frame_inferior.setFrameShadow(QtWidgets.QFrame.Shadow.Raised)
         self.frame_inferior.setObjectName("frame_inferior")
         self.verticalLayout = QtWidgets.QVBoxLayout(self.frame_inferior)
-        self.verticalLayout.setContentsMargins(1, 1, 1, 1)
+        self.verticalLayout.setContentsMargins(1, 1, 1, 0)
         self.verticalLayout.setObjectName("verticalLayout")
         self.stackedWidget = QtWidgets.QStackedWidget(parent=self.frame_inferior)
         self.stackedWidget.setMinimumSize(QtCore.QSize(1080, 720))
@@ -153,11 +158,29 @@ class Ui_MainWindow(object):
         self.tableWidget_stock.setHorizontalHeaderItem(4, item)
         self.verticalLayout_6.addWidget(self.tableWidget_stock)
         self.horizontalLayout_13 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_13.setContentsMargins(-1, -1, -1, 10)
         self.horizontalLayout_13.setObjectName("horizontalLayout_13")
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_13.addItem(spacerItem1)
+        self.pushButton_imprimir_stock = QtWidgets.QPushButton(parent=self.page_stock)
+        self.pushButton_imprimir_stock.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_imprimir_stock.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_imprimir_stock.setObjectName("pushButton_imprimir_stock")
+        self.horizontalLayout_13.addWidget(self.pushButton_imprimir_stock)
         self.pushButton_refrescar_stock = QtWidgets.QPushButton(parent=self.page_stock)
-        self.pushButton_refrescar_stock.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_refrescar_stock.setMinimumSize(QtCore.QSize(150, 30))
         self.pushButton_refrescar_stock.setStyleSheet("\n"
 "QPushButton{\n"
 "background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
@@ -209,11 +232,29 @@ class Ui_MainWindow(object):
         self.tableWidget_stock_danados.setHorizontalHeaderItem(4, item)
         self.verticalLayout_8.addWidget(self.tableWidget_stock_danados)
         self.horizontalLayout_10 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_10.setContentsMargins(-1, -1, -1, 10)
         self.horizontalLayout_10.setObjectName("horizontalLayout_10")
         spacerItem2 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_10.addItem(spacerItem2)
+        self.pushButton_imprimir_danados = QtWidgets.QPushButton(parent=self.page_stock_danados)
+        self.pushButton_imprimir_danados.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_imprimir_danados.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_imprimir_danados.setObjectName("pushButton_imprimir_danados")
+        self.horizontalLayout_10.addWidget(self.pushButton_imprimir_danados)
         self.pushButton_refrescar_stock_danados = QtWidgets.QPushButton(parent=self.page_stock_danados)
-        self.pushButton_refrescar_stock_danados.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_refrescar_stock_danados.setMinimumSize(QtCore.QSize(150, 30))
         self.pushButton_refrescar_stock_danados.setStyleSheet("\n"
 "QPushButton{\n"
 "background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
@@ -262,11 +303,29 @@ class Ui_MainWindow(object):
         self.tableWidget_stock_vencidos.setHorizontalHeaderItem(4, item)
         self.verticalLayout_9.addWidget(self.tableWidget_stock_vencidos)
         self.horizontalLayout_11 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_11.setContentsMargins(-1, -1, -1, 10)
         self.horizontalLayout_11.setObjectName("horizontalLayout_11")
         spacerItem3 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_11.addItem(spacerItem3)
+        self.pushButton_imprimir_vencidos = QtWidgets.QPushButton(parent=self.page_stock_vencidos)
+        self.pushButton_imprimir_vencidos.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_imprimir_vencidos.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_imprimir_vencidos.setObjectName("pushButton_imprimir_vencidos")
+        self.horizontalLayout_11.addWidget(self.pushButton_imprimir_vencidos)
         self.pushButton_refrescar_stock_vencidos = QtWidgets.QPushButton(parent=self.page_stock_vencidos)
-        self.pushButton_refrescar_stock_vencidos.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_refrescar_stock_vencidos.setMinimumSize(QtCore.QSize(150, 30))
         self.pushButton_refrescar_stock_vencidos.setStyleSheet("\n"
 "QPushButton{\n"
 "background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
@@ -287,8 +346,8 @@ class Ui_MainWindow(object):
         self.page_ventas = QtWidgets.QWidget()
         self.page_ventas.setStyleSheet("")
         self.page_ventas.setObjectName("page_ventas")
-        self.verticalLayout_7 = QtWidgets.QVBoxLayout(self.page_ventas)
-        self.verticalLayout_7.setObjectName("verticalLayout_7")
+        self.verticalLayout_4 = QtWidgets.QVBoxLayout(self.page_ventas)
+        self.verticalLayout_4.setObjectName("verticalLayout_4")
         self.label_stock_4 = QtWidgets.QLabel(parent=self.page_ventas)
         font = QtGui.QFont()
         font.setFamily("Impact")
@@ -297,7 +356,7 @@ class Ui_MainWindow(object):
         self.label_stock_4.setStyleSheet("color: rgb(255, 255, 255);")
         self.label_stock_4.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.label_stock_4.setObjectName("label_stock_4")
-        self.verticalLayout_7.addWidget(self.label_stock_4)
+        self.verticalLayout_4.addWidget(self.label_stock_4)
         self.tableWidget_ventas = QtWidgets.QTableWidget(parent=self.page_ventas)
         self.tableWidget_ventas.setStyleSheet("background-color: rgb(255, 255, 255);")
         self.tableWidget_ventas.setObjectName("tableWidget_ventas")
@@ -315,13 +374,31 @@ class Ui_MainWindow(object):
         self.tableWidget_ventas.setHorizontalHeaderItem(4, item)
         item = QtWidgets.QTableWidgetItem()
         self.tableWidget_ventas.setHorizontalHeaderItem(5, item)
-        self.verticalLayout_7.addWidget(self.tableWidget_ventas)
+        self.verticalLayout_4.addWidget(self.tableWidget_ventas)
         self.horizontalLayout_12 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_12.setContentsMargins(-1, -1, -1, 10)
         self.horizontalLayout_12.setObjectName("horizontalLayout_12")
         spacerItem4 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
         self.horizontalLayout_12.addItem(spacerItem4)
+        self.pushButton_imprimir_ventas = QtWidgets.QPushButton(parent=self.page_ventas)
+        self.pushButton_imprimir_ventas.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_imprimir_ventas.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_imprimir_ventas.setObjectName("pushButton_imprimir_ventas")
+        self.horizontalLayout_12.addWidget(self.pushButton_imprimir_ventas)
         self.pushButton_refrescar_ventas = QtWidgets.QPushButton(parent=self.page_ventas)
-        self.pushButton_refrescar_ventas.setMinimumSize(QtCore.QSize(130, 30))
+        self.pushButton_refrescar_ventas.setMinimumSize(QtCore.QSize(150, 30))
         self.pushButton_refrescar_ventas.setStyleSheet("\n"
 "QPushButton{\n"
 "background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
@@ -337,71 +414,163 @@ class Ui_MainWindow(object):
 "}")
         self.pushButton_refrescar_ventas.setObjectName("pushButton_refrescar_ventas")
         self.horizontalLayout_12.addWidget(self.pushButton_refrescar_ventas)
-        self.verticalLayout_7.addLayout(self.horizontalLayout_12)
+        self.verticalLayout_4.addLayout(self.horizontalLayout_12)
         self.stackedWidget.addWidget(self.page_ventas)
+        self.page_compras = QtWidgets.QWidget()
+        self.page_compras.setObjectName("page_compras")
+        self.verticalLayout_3 = QtWidgets.QVBoxLayout(self.page_compras)
+        self.verticalLayout_3.setObjectName("verticalLayout_3")
+        self.label_stock_5 = QtWidgets.QLabel(parent=self.page_compras)
+        font = QtGui.QFont()
+        font.setFamily("Impact")
+        font.setPointSize(16)
+        self.label_stock_5.setFont(font)
+        self.label_stock_5.setStyleSheet("color: rgb(255, 255, 255);")
+        self.label_stock_5.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
+        self.label_stock_5.setObjectName("label_stock_5")
+        self.verticalLayout_3.addWidget(self.label_stock_5)
+        self.tableWidget_compras = QtWidgets.QTableWidget(parent=self.page_compras)
+        self.tableWidget_compras.setStyleSheet("background-color: rgb(255, 255, 255);")
+        self.tableWidget_compras.setObjectName("tableWidget_compras")
+        self.tableWidget_compras.setColumnCount(6)
+        self.tableWidget_compras.setRowCount(0)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(0, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(1, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(2, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(3, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(4, item)
+        item = QtWidgets.QTableWidgetItem()
+        self.tableWidget_compras.setHorizontalHeaderItem(5, item)
+        self.verticalLayout_3.addWidget(self.tableWidget_compras)
+        self.horizontalLayout_14 = QtWidgets.QHBoxLayout()
+        self.horizontalLayout_14.setContentsMargins(-1, -1, -1, 10)
+        self.horizontalLayout_14.setObjectName("horizontalLayout_14")
+        spacerItem5 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Policy.Expanding, QtWidgets.QSizePolicy.Policy.Minimum)
+        self.horizontalLayout_14.addItem(spacerItem5)
+        self.pushButton_imprimir_compras = QtWidgets.QPushButton(parent=self.page_compras)
+        self.pushButton_imprimir_compras.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_imprimir_compras.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_imprimir_compras.setObjectName("pushButton_imprimir_compras")
+        self.horizontalLayout_14.addWidget(self.pushButton_imprimir_compras)
+        self.pushButton_refrescar_compras = QtWidgets.QPushButton(parent=self.page_compras)
+        self.pushButton_refrescar_compras.setMinimumSize(QtCore.QSize(150, 30))
+        self.pushButton_refrescar_compras.setStyleSheet("\n"
+"QPushButton{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:1, y2:0.5, stop:0 rgba(11, 38, 67, 184), stop: 1 rgba(150, 88, 240, 255));\n"
+"border-radius: 10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254); }\n"
+"\n"
+"QPushButton:hover{\n"
+"background-color: qlineargradient(spread:reflect, x1:0, y1:0.562273, x2:0.949, y2:0.545455, stop: 0 rgba(11, 38, 67, 184), stop:1 rgba(88, 240, 171, 255));\n"
+"border-radius:10px;\n"
+"font: 12pt \"Sans Serif\";\n"
+"color: rgb(255, 255, 254);\n"
+"}")
+        self.pushButton_refrescar_compras.setObjectName("pushButton_refrescar_compras")
+        self.horizontalLayout_14.addWidget(self.pushButton_refrescar_compras)
+        self.verticalLayout_3.addLayout(self.horizontalLayout_14)
+        self.stackedWidget.addWidget(self.page_compras)
         self.verticalLayout.addWidget(self.stackedWidget)
         self.verticalLayout_2.addWidget(self.frame_inferior)
-        MainWindow.setCentralWidget(self.centralwidget)
+        MainWindow_Inventario.setCentralWidget(self.centralwidget)
 
-        self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(3)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+        self.retranslateUi(MainWindow_Inventario)
+        self.stackedWidget.setCurrentIndex(0)
+        QtCore.QMetaObject.connectSlotsByName(MainWindow_Inventario)
 
-    def retranslateUi(self, MainWindow):
+    def retranslateUi(self, MainWindow_Inventario):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
-        self.pushButton_stock.setText(_translate("MainWindow", "Stock"))
-        self.pushButton_stock_danados.setText(_translate("MainWindow", "Stock dañados"))
-        self.pushButton_stock_vencidos.setText(_translate("MainWindow", "Stock vencidos"))
-        self.pushButton_Ventas.setText(_translate("MainWindow", "Ventas"))
-        self.pushButton_regresar_rep.setText(_translate("MainWindow", "Regresar"))
-        self.label_stock.setText(_translate("MainWindow", "STOCK"))
+        MainWindow_Inventario.setWindowTitle(_translate("MainWindow_Inventario", "MainWindow"))
+        self.pushButton_stock.setText(_translate("MainWindow_Inventario", "Stock"))
+        self.pushButton_stock_danados.setText(_translate("MainWindow_Inventario", "Stock dañados"))
+        self.pushButton_stock_vencidos.setText(_translate("MainWindow_Inventario", "Stock vencidos"))
+        self.pushButton_Ventas.setText(_translate("MainWindow_Inventario", "Ventas"))
+        self.pushButton_compras.setText(_translate("MainWindow_Inventario", "Compras"))
+        self.pushButton_regresar_rep.setText(_translate("MainWindow_Inventario", "Regresar"))
+        self.label_stock.setText(_translate("MainWindow_Inventario", "STOCK"))
         item = self.tableWidget_stock.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "SKU"))
+        item.setText(_translate("MainWindow_Inventario", "SKU"))
         item = self.tableWidget_stock.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Codigo de Barra"))
+        item.setText(_translate("MainWindow_Inventario", "Codigo de Barra"))
         item = self.tableWidget_stock.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Descripción"))
+        item.setText(_translate("MainWindow_Inventario", "Descripción"))
         item = self.tableWidget_stock.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Precio $"))
+        item.setText(_translate("MainWindow_Inventario", "Precio $"))
         item = self.tableWidget_stock.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Cantidad"))
-        self.pushButton_refrescar_stock.setText(_translate("MainWindow", "Actualizar"))
-        self.label_stock_danados.setText(_translate("MainWindow", "STOCK DAÑADOS"))
+        item.setText(_translate("MainWindow_Inventario", "Cantidad"))
+        self.pushButton_imprimir_stock.setText(_translate("MainWindow_Inventario", "Imprimir"))
+        self.pushButton_refrescar_stock.setText(_translate("MainWindow_Inventario", "Actualizar"))
+        self.label_stock_danados.setText(_translate("MainWindow_Inventario", "STOCK DAÑADOS"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "SKU"))
+        item.setText(_translate("MainWindow_Inventario", "SKU"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Codigo de Barra"))
+        item.setText(_translate("MainWindow_Inventario", "Codigo de Barra"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Descripción"))
+        item.setText(_translate("MainWindow_Inventario", "Descripción"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Precio $"))
+        item.setText(_translate("MainWindow_Inventario", "Precio $"))
         item = self.tableWidget_stock_danados.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Cantidad"))
-        self.pushButton_refrescar_stock_danados.setText(_translate("MainWindow", "Actualizar"))
-        self.label_stock_vencidos.setText(_translate("MainWindow", "STOCK VENCIDOS"))
+        item.setText(_translate("MainWindow_Inventario", "Cantidad"))
+        self.pushButton_imprimir_danados.setText(_translate("MainWindow_Inventario", "Imprimir"))
+        self.pushButton_refrescar_stock_danados.setText(_translate("MainWindow_Inventario", "Actualizar"))
+        self.label_stock_vencidos.setText(_translate("MainWindow_Inventario", "STOCK VENCIDOS"))
         item = self.tableWidget_stock_vencidos.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "SKU"))
+        item.setText(_translate("MainWindow_Inventario", "SKU"))
         item = self.tableWidget_stock_vencidos.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Codigo de Barra"))
+        item.setText(_translate("MainWindow_Inventario", "Codigo de Barra"))
         item = self.tableWidget_stock_vencidos.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Descripción"))
+        item.setText(_translate("MainWindow_Inventario", "Descripción"))
         item = self.tableWidget_stock_vencidos.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Precio $"))
+        item.setText(_translate("MainWindow_Inventario", "Precio $"))
         item = self.tableWidget_stock_vencidos.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Cantidad"))
-        self.pushButton_refrescar_stock_vencidos.setText(_translate("MainWindow", "Actualizar"))
-        self.label_stock_4.setText(_translate("MainWindow", "VENTAS"))
+        item.setText(_translate("MainWindow_Inventario", "Cantidad"))
+        self.pushButton_imprimir_vencidos.setText(_translate("MainWindow_Inventario", "Imprimir"))
+        self.pushButton_refrescar_stock_vencidos.setText(_translate("MainWindow_Inventario", "Actualizar"))
+        self.label_stock_4.setText(_translate("MainWindow_Inventario", "VENTAS"))
         item = self.tableWidget_ventas.horizontalHeaderItem(0)
-        item.setText(_translate("MainWindow", "ID"))
+        item.setText(_translate("MainWindow_Inventario", "ID"))
         item = self.tableWidget_ventas.horizontalHeaderItem(1)
-        item.setText(_translate("MainWindow", "Fecha"))
+        item.setText(_translate("MainWindow_Inventario", "Fecha"))
         item = self.tableWidget_ventas.horizontalHeaderItem(2)
-        item.setText(_translate("MainWindow", "Sku de producto"))
+        item.setText(_translate("MainWindow_Inventario", "Sku de producto"))
         item = self.tableWidget_ventas.horizontalHeaderItem(3)
-        item.setText(_translate("MainWindow", "Codigo de barra de producto"))
+        item.setText(_translate("MainWindow_Inventario", "Codigo de barra de producto"))
         item = self.tableWidget_ventas.horizontalHeaderItem(4)
-        item.setText(_translate("MainWindow", "Cantidad"))
+        item.setText(_translate("MainWindow_Inventario", "Cantidad"))
         item = self.tableWidget_ventas.horizontalHeaderItem(5)
-        item.setText(_translate("MainWindow", "Descripcion de producto"))
-        self.pushButton_refrescar_ventas.setText(_translate("MainWindow", "Actualizar"))
+        item.setText(_translate("MainWindow_Inventario", "Descripcion de producto"))
+        self.pushButton_imprimir_ventas.setText(_translate("MainWindow_Inventario", "Imprimir"))
+        self.pushButton_refrescar_ventas.setText(_translate("MainWindow_Inventario", "Actualizar"))
+        self.label_stock_5.setText(_translate("MainWindow_Inventario", "COMPRAS"))
+        item = self.tableWidget_compras.horizontalHeaderItem(0)
+        item.setText(_translate("MainWindow_Inventario", "ID"))
+        item = self.tableWidget_compras.horizontalHeaderItem(1)
+        item.setText(_translate("MainWindow_Inventario", "Fecha"))
+        item = self.tableWidget_compras.horizontalHeaderItem(2)
+        item.setText(_translate("MainWindow_Inventario", "Sku de producto"))
+        item = self.tableWidget_compras.horizontalHeaderItem(3)
+        item.setText(_translate("MainWindow_Inventario", "Codigo de barra de producto"))
+        item = self.tableWidget_compras.horizontalHeaderItem(4)
+        item.setText(_translate("MainWindow_Inventario", "Cantidad"))
+        item = self.tableWidget_compras.horizontalHeaderItem(5)
+        item.setText(_translate("MainWindow_Inventario", "Descripcion de producto"))
+        self.pushButton_imprimir_compras.setText(_translate("MainWindow_Inventario", "Imprimir"))
+        self.pushButton_refrescar_compras.setText(_translate("MainWindow_Inventario", "Actualizar"))
