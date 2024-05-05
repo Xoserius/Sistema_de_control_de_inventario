@@ -1,4 +1,4 @@
-# Form implementation generated from reading ui file 'c:\Users\User\OneDrive\Tesis TSU Informatica\Sistema de control de inventario\Qt designer\4.Gestion_de_usuarios.ui'
+# Form implementation generated from reading ui file 'c:\Users\User\OneDrive\Tesis TSU Informatica\Sistema de control de inventario\Proyecto_teg\4.Gestion_de_usuarios.ui'
 #
 # Created by: PyQt6 UI code generator 6.6.1
 #
@@ -615,6 +615,8 @@ class Ui_MainWindow_gestiondeusuarios(object):
         self.gridLayout.addWidget(self.label_registrodeusuario, 0, 0, 1, 2)
         self.lineEdit_telefono_registrodeusuario = QtWidgets.QLineEdit(parent=self.frame_registrodeusuarios)
         self.lineEdit_telefono_registrodeusuario.setMinimumSize(QtCore.QSize(0, 30))
+        self.lineEdit_telefono_registrodeusuario.setInputMask("")
+        self.lineEdit_telefono_registrodeusuario.setText("")
         self.lineEdit_telefono_registrodeusuario.setAlignment(QtCore.Qt.AlignmentFlag.AlignCenter)
         self.lineEdit_telefono_registrodeusuario.setObjectName("lineEdit_telefono_registrodeusuario")
         self.gridLayout.addWidget(self.lineEdit_telefono_registrodeusuario, 7, 0, 1, 2)

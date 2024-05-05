@@ -3,12 +3,13 @@ import re
 import sqlite3
 import sys
 import uuid
+import re
 
 from datetime import datetime
 from PyQt5 import QtCore
 from PyQt5.QtCore import QDate
 from PyQt5.QtGui import QIcon, QPixmap, QColor
-from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QTableWidgetItem, QTableWidget
+from PyQt5.QtWidgets import QApplication, QMainWindow, QDialog, QMessageBox, QTableWidgetItem, QTableWidget, QInputDialog
 from PyQt5.uic import loadUi
 from fpdf import FPDF
 
@@ -215,7 +216,7 @@ class Ui_QMainwindow_Gestion_de_usuarios(QMainWindow):
                 self.comboBox_permiso.setCurrentText(usuario[5])
             else:
                 # Si no encuentra el usuario, muestra un mensaje de error
-                QMessageBox.warning(self, "No encontrado", "Esta cédula no se encuentra registrada")
+                QMessageBox.information(self, "No encontrado", "Esta cédula no se encuentra registrada, Es posible registrarla")
 
         except Exception as e:
             # Capturar cualquier otro tipo de excepción genérica.
@@ -250,6 +251,34 @@ class Ui_QMainwindow_Gestion_de_usuarios(QMainWindow):
             return
         # Se muestra un mensaje crítico con los nombres de los campos que están vacíos.
 
+        # Verifica que el usuario tenga al menos 6 caracteres, 1 mayúscula y 1 número.
+        if len(usuario) < 6 or not re.search(r'[A-Z]', usuario) or not re.search(r'\d', usuario):
+            QMessageBox.critical(self, "Error de usuario", "El usuario debe tener al menos 6 caracteres, incluyendo al menos una mayúscula y un número.")
+            return
+
+        # Verifica que la contraseña tenga al menos 6 caracteres, 1 mayúscula y 1 número.
+        if len(clave) < 6 or not re.search(r'[A-Z]', clave) or not re.search(r'\d', clave):
+            QMessageBox.critical(self, "Error de contraseña", "La contraseña debe tener al menos 6 caracteres, incluyendo al menos una mayúscula y un número.")
+            return
+        
+        # Verifica que el usuario y la contraseña no sean iguales.
+        if usuario == clave:
+            QMessageBox.critical(self, "Error de usuario y contraseña", "El usuario y la contraseña no pueden ser iguales.")
+            return
+        
+        # Verifica que el teléfono tenga 11 dígitos.
+        if not re.match(r'^\d{11}$', telefono):
+            QMessageBox.critical(self, "Error de formato de teléfono", "El teléfono debe tener 11 dígitos.")
+            return
+        
+        # Formatea el teléfono al formato deseado "9999-9999999".
+        telefono_formateado = f"{telefono[:4]}-{telefono[4:]}"
+
+        # Verifica que el nombre y apellido no contengan caracteres numéricos.
+        if not re.match(r'^[a-zA-ZáéíóúüÁÉÍÓÚÄËÏÖÜñÑ\s]+$', nombre) or not re.match(r'^[a-zA-ZáéíóúüÁÉÍÓÚÄËÏÖÜñÑ\s]+$', apellido):
+            QMessageBox.critical(self, "Error de formato de nombre o apellido", "El nombre y el apellido no pueden contener caracteres especiales o numéricos.")
+            return
+
         try:
             # Conectar a la base de datos SQLite.
             conexion = sqlite3.connect("Base de datos proyecto.db")
@@ -257,14 +286,14 @@ class Ui_QMainwindow_Gestion_de_usuarios(QMainWindow):
             cursor = conexion.cursor()
             
             # Consultar si el número de teléfono ya está asociado a otro usuario.
-            cursor.execute("SELECT * FROM usuarios WHERE telefono = ?", (telefono,))
+            cursor.execute("SELECT * FROM usuarios WHERE telefono = ?", (telefono_formateado, ))
             if cursor.fetchone():
                 QMessageBox.critical(self, "Error de duplicidad", "El número de teléfono ingresado ya está asociado a otro usuario.")
                 return
             
             # Ejecutar un comando SQL para insertar datos en la tabla 'usuarios'.
             cursor.execute("INSERT INTO usuarios (cedula, nombre, apellido, telefono, usuario, clave, permiso) VALUES (?, ?, ?, ?, ?, ?, ?)",
-                        (cedula, nombre, apellido, telefono, usuario, clave, permiso))
+                        (cedula, nombre, apellido, telefono_formateado, usuario, clave, permiso))
             # Confirmar la transacción para asegurar que los datos se guarden de forma permanente.
             conexion.commit()
             QMessageBox.information(self, "Éxito", "Datos guardados correctamente.")
@@ -643,18 +672,23 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         
 
     def generar_reporte_productos_pdf(self):
-
-        # Crear el objeto PDF
+    # Crear el objeto PDF
         pdf = FPDF('P', 'mm', 'A4')
         pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Reducir el tamaño de la fuente
-
-        pdf.ln(50)
+        pdf.set_font('Times', 'B', 10) 
 
         # Obtener la fecha y hora actual
         now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
+        fecha_actual = now.strftime("%d-%m-%y")
         hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
+
+        # Mostrar la fecha en la esquina superior izquierda
+        pdf.set_xy(10, 10)
+        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
+
+        # Mostrar la hora en la esquina superior derecha
+        pdf.set_xy(-40, 10)
+        pdf.cell(0, 0, hora_actual, 0, 1, "R")
 
         # Carpeta de destino para los reportes
         carpeta_destino = "Reportes de inventario"
@@ -667,20 +701,23 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
 
         # Posicionamiento de la imagen en la parte superior del medio
-        pdf.image("logo_potro_pdf.png", x=80, y=10, w=50)
+        pdf.image("image.png", x=80, y=10, w=50)  # Ajusta las coordenadas y el tamaño de acuerdo a tu imagen
+
+        # Dejar espacio en blanco en la parte superior
+        pdf.ln(50)
 
         # Título del reporte
         titulo_reporte = f"REPORTE DE PRODUCTOS - {fecha_actual}"
         pdf.set_font('times', 'B', 16)  # Cambia el tamaño de la fuente aquí
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")
-        pdf.set_font('Times', 'B', 10)
+        pdf.cell(0, 10, titulo_reporte, 0, 1, "C")
+        pdf.set_font('times', 'B', 10)
 
         # Encabezado de la tabla
         encabezados = ["SKU", "CÓDIGO DE BARRAS", "DESCRIPCIÓN", "PRECIO", "CANTIDAD", "CONTADOS"]
         ancho_celdas = [30, 45, 31, 30, 30, 25]  # Ancho personalizado de las celdas
         for i, encabezado in enumerate(encabezados):
             pdf.cell(ancho_celdas[i], 10, encabezado, 1, 0, "C")  # Ajustar el ancho de las celdas
-        pdf.ln()
+        pdf.ln()  # Agrega un salto de línea después del encabezado
 
         # Realizar la consulta a la base de datos SQLite
         conn = sqlite3.connect('Base de datos proyecto.db')
@@ -694,7 +731,28 @@ class Ui_QMainwindow_Reportes(QMainWindow):
             for i, dato in enumerate(resultado):
                 pdf.cell(ancho_celdas[i], 10, str(dato), 1, 0, "C")  # Ajustar el ancho de las celdas
             pdf.cell(ancho_celdas[-1], 10, '', 1, 0, "C")  # Celda en blanco para "CONTADOS"
-            pdf.ln()
+            pdf.ln()          
+
+        # Guardar el PDF
+        pdf.output(name=ruta_reporte, dest='F')
+
+        # Mostrar mensaje exitoso
+        QMessageBox.information(None, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
+
+        # Abrir el PDF automáticamente
+        os.startfile(ruta_reporte)
+
+    def generar_reporte_productos_danados_pdf(self):
+
+        # Crear el objeto PDF
+        pdf = FPDF('P', 'mm', 'A4')
+        pdf.add_page()
+        pdf.set_font('Times', 'B', 10) 
+
+        # Obtener la fecha y hora actual
+        now = datetime.now()
+        fecha_actual = now.strftime("%d-%m-%y")
+        hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
 
         # Mostrar la fecha en la esquina superior izquierda
         pdf.set_xy(10, 10)
@@ -704,29 +762,6 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         pdf.set_xy(-40, 10)
         pdf.cell(0, 0, hora_actual, 0, 1, "R")
 
-        pdf.image("logo_potro_pdf_fondo.png", x=55, y=100, w=100)
-
-
-        # Guardar el PDF
-        pdf.output(name=ruta_reporte, dest='F')
-
-        # Mostrar mensaje exitoso
-        QMessageBox.information(self, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
-
-        # Abrir el PDF automáticamente
-        os.startfile(ruta_reporte)
-
-    def generar_reporte_productos_danados_pdf(self):
-        # Crear el objeto PDF
-        pdf = FPDF('P', 'mm', 'A4')
-        pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Reducir el tamaño de la fuente
-
-        # Obtener la fecha y hora actual
-        now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
-        hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
-
         # Carpeta de destino para los reportes
         carpeta_destino = "Reportes de Productos dañados"
         if not os.path.exists(carpeta_destino):
@@ -734,18 +769,27 @@ class Ui_QMainwindow_Reportes(QMainWindow):
 
         # Nombre único del archivo de reporte
         id_unico = str(uuid.uuid4())
-        nombre_reporte = f"reporte_productos_dañados_{fecha_actual}_{id_unico}.pdf"
+        nombre_reporte = f"reporte_productos_dañados_{fecha_actual}_:{id_unico}.pdf"
         ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
 
+        # Posicionamiento de la imagen en la parte superior del medio
+        pdf.image("image.png", x=80, y=10, w=50)  # Ajusta las coordenadas y el tamaño de acuerdo a tu imagen
+
+        # Dejar espacio en blanco en la parte superior
+        pdf.ln(50)
+
         # Título del reporte
-        titulo_reporte = "Reporte Productos dañados - " + fecha_actual
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
+        titulo_reporte = f"REPORTE DE PRODUCTOS DAÑADOS - {fecha_actual}"
+        pdf.set_font('times', 'B', 16)  # Cambia el tamaño de la fuente aquí
+        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Centrar el título y agregar un salto de línea
+        pdf.set_font('Times', 'B', 10)
 
         # Encabezado de la tabla
-        encabezados = ["SKU", "CÓDIGO DE BARRAS", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"]
-        for encabezado in encabezados:
-            pdf.cell(38, 10, encabezado, 1, 0, "C")  # Aumentar el ancho de las celdas
-        pdf.ln()
+        encabezados = ["SKU", "CÓDIGO DE BARRAS", "DESCRIPCIÓN", "PRECIO", "CANTIDAD", "CONTADOS"]
+        ancho_celdas = [30, 45, 31, 30, 30, 25]  # Ancho personalizado de las celdas
+        for i, encabezado in enumerate(encabezados):
+            pdf.cell(ancho_celdas[i], 10, encabezado, 1, 0, "C")  # Ajustar el ancho de las celdas
+        pdf.ln()  # Agrega un salto de línea después del encabezado
 
         # Realizar la consulta a la base de datos SQLite
         conn = sqlite3.connect('Base de datos proyecto.db')
@@ -756,23 +800,16 @@ class Ui_QMainwindow_Reportes(QMainWindow):
 
         # Agregar los resultados al PDF
         for resultado in resultados:
-            for dato in resultado:
-                pdf.cell(38, 10, str(dato), 1, 0, "C")  # Ajustar el ancho de las celdas
-            pdf.ln()
-
-        # Mostrar la fecha en la esquina superior izquierda
-        pdf.set_xy(10, 10)
-        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
-
-        # Mostrar la hora en la esquina superior derecha
-        pdf.set_xy(-40, 10)
-        pdf.cell(0, 0, hora_actual, 0, 1, "R")
+            for i, dato in enumerate(resultado):
+                pdf.cell(ancho_celdas[i], 10, str(dato), 1, 0, "C")  # Ajustar el ancho de las celdas
+            pdf.cell(ancho_celdas[-1], 10, '', 1, 0, "C")  # Celda en blanco para "CONTADOS"
+            pdf.ln()          
 
         # Guardar el PDF
         pdf.output(name=ruta_reporte, dest='F')
 
         # Mostrar mensaje exitoso
-        QMessageBox.information(self, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
+        QMessageBox.information(None, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
 
         # Abrir el PDF automáticamente
         os.startfile(ruta_reporte)
@@ -782,12 +819,26 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         # Crear el objeto PDF
         pdf = FPDF('P', 'mm', 'A4')
         pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Reducir el tamaño de la fuente
+        pdf.set_font('Times', 'B', 10) 
 
         # Obtener la fecha y hora actual
         now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
+        fecha_actual = now.strftime("%d-%m-%y")
         hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
+
+        # Mostrar la fecha en la esquina superior izquierda
+        pdf.set_xy(10, 10)
+        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
+
+        # Mostrar la hora en la esquina superior derecha
+        pdf.set_xy(-40, 10)
+        pdf.cell(0, 0, hora_actual, 0, 1, "R")
+
+        # Posicionamiento de la imagen en la parte superior del medio
+        pdf.image("image.png", x=80, y=10, w=50)  # Ajusta las coordenadas y el tamaño de acuerdo a tu imagen
+
+        # Dejar espacio en blanco en la parte superior
+        pdf.ln(50)
 
         # Carpeta de destino para los reportes
         carpeta_destino = "Reportes de Productos vencidos"
@@ -800,8 +851,10 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
 
         # Título del reporte
-        titulo_reporte = "Reporte Productos vencidos - " + fecha_actual
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
+        titulo_reporte = f"REPORTE DE PRODUCTOS VENCIDOS - {fecha_actual}"
+        pdf.set_font('times', 'B', 16)  # Cambia el tamaño de la fuente aquí
+        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")
+        pdf.set_font('Times', 'B', 10)
 
         # Encabezado de la tabla
         encabezados = ["SKU", "CÓDIGO DE BARRAS", "DESCRIPCIÓN", "PRECIO", "CANTIDAD"]
@@ -822,14 +875,6 @@ class Ui_QMainwindow_Reportes(QMainWindow):
                 pdf.cell(38, 10, str(dato), 1, 0, "C")  # Ajustar el ancho de las celdas
             pdf.ln()
 
-        # Mostrar la fecha en la esquina superior izquierda
-        pdf.set_xy(10, 10)
-        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
-
-        # Mostrar la hora en la esquina superior derecha
-        pdf.set_xy(-40, 10)
-        pdf.cell(0, 0, hora_actual, 0, 1, "R")
-
         # Guardar el PDF
         pdf.output(name=ruta_reporte, dest='F')
 
@@ -840,16 +885,33 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         os.startfile(ruta_reporte)
 
     def generar_reporte_productos_ventas_pdf(self):
+
+        fecha_desde = self.dateEdit_desde_ventas.date().toString("dd-MM-yyyy")
+        fecha_hasta = self.dateEdit_ventas.date().toString("dd-MM-yyyy")
             
-            # Crear el objeto PDF
+        # Crear el objeto PDF
         pdf = FPDF('P', 'mm', 'A4')
         pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Mantener el tamaño de la fuente en 10
+        pdf.set_font('Times', 'B', 10) 
 
         # Obtener la fecha y hora actual
         now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
+        fecha_actual = now.strftime("%d-%m-%y")
         hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
+
+        # Mostrar la fecha en la esquina superior izquierda
+        pdf.set_xy(10, 10)
+        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
+
+        # Mostrar la hora en la esquina superior derecha
+        pdf.set_xy(-40, 10)
+        pdf.cell(0, 0, hora_actual, 0, 1, "R")
+
+        # Posicionamiento de la imagen en la parte superior del medio
+        pdf.image("image.png", x=80, y=10, w=50)  # Ajusta las coordenadas y el tamaño de acuerdo a tu imagen
+
+        # Dejar espacio en blanco en la parte superior
+        pdf.ln(50)
 
         # Carpeta de destino para los reportes
         carpeta_destino = "Reportes de ventas"
@@ -862,8 +924,10 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
 
         # Título del reporte
-        titulo_reporte = "Reporte de ventas - " + fecha_actual
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
+        titulo_reporte = f"REPORTE DE VENTAS - {fecha_actual}"
+        pdf.set_font('times', 'B', 16)  # Cambia el tamaño de la fuente aquí
+        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")
+        pdf.set_font('times', 'B', 10)
 
         # Encabezado de la tabla
         encabezados = ["ID", "Fecha", "SKU", "Código de Barras", "Cantidad", "Descripción"]
@@ -875,134 +939,6 @@ class Ui_QMainwindow_Reportes(QMainWindow):
         # Realizar la consulta a la base de datos SQLite
         conn = sqlite3.connect('Base de datos proyecto.db')
         c = conn.cursor()
-        c.execute('''SELECT id, fecha, sku_prod, codigo_barra_prod, cant, Descripcion_prod
-                    FROM ventas''')
-        resultados = c.fetchall()
-
-        # Agregar los resultados al PDF
-        for resultado in resultados:
-            for dato, ancho in zip(resultado, anchos_columnas):
-                pdf.cell(ancho, 10, str(dato), 1, 0, "C")  # Ajustar el ancho de las celdas
-            pdf.ln()
-
-        # Mostrar la fecha en la esquina superior izquierda
-        pdf.set_xy(10, 10)
-        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
-
-        # Mostrar la hora en la esquina superior derecha
-        pdf.set_xy(-40, 10)
-        pdf.cell(0, 0, hora_actual, 0, 1, "R")
-
-        # Guardar el PDF
-        pdf.output(name=ruta_reporte, dest='F')
-
-        # Mostrar mensaje exitoso
-        QMessageBox.information(self, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
-
-        # Abrir el PDF automáticamente
-        os.startfile(ruta_reporte)
-
-    def generar_reporte_productos_compras_pdf(self):
-        
-          # Crear el objeto PDF
-        pdf = FPDF('P', 'mm', 'A4')
-        pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Mantener el tamaño de la fuente en 10
-
-        # Obtener la fecha y hora actual
-        now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
-        hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
-
-        # Carpeta de destino para los reportes
-        carpeta_destino = "Reportes de compras"
-        if not os.path.exists(carpeta_destino):
-            os.makedirs(carpeta_destino)
-
-        # Nombre único del archivo de reporte
-        id_unico = str(uuid.uuid4())
-        nombre_reporte = f"reporte_compras_{fecha_actual}_{id_unico}.pdf"
-        ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
-
-        # Título del reporte
-        titulo_reporte = "Reporte de compras - " + fecha_actual
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
-
-        # Encabezado de la tabla
-        encabezados = ["ID", "Fecha", "SKU", "Código de Barras", "Cantidad", "Descripción"]
-        anchos_columnas = [20, 20, 30, 40, 20, 60]  # Definir anchos de las columnas
-        for encabezado, ancho in zip(encabezados, anchos_columnas):
-            pdf.cell(ancho, 10, encabezado, 1, 0, "C")  # Ajustar el tamaño de las celdas
-        pdf.ln()
-
-        # Realizar la consulta a la base de datos SQLite
-        conn = sqlite3.connect('Base de datos proyecto.db')
-        c = conn.cursor()
-        c.execute('''SELECT id, fecha, sku_prod, codigo_barra_prod, cant, Descripcion_prod
-                    FROM compras''')
-        resultados = c.fetchall()
-
-        # Agregar los resultados al PDF
-        for resultado in resultados:
-            for dato, ancho in zip(resultado, anchos_columnas):
-                pdf.cell(ancho, 10, str(dato), 1, 0, "C")  # Ajustar el tamaño de los campos
-            pdf.ln()
-
-        # Mostrar la fecha en la esquina superior izquierda
-        pdf.set_xy(10, 10)
-        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
-
-        # Mostrar la hora en la esquina superior derecha
-        pdf.set_xy(-40, 10)
-        pdf.cell(0, 0, hora_actual, 0, 1, "R")
-
-        # Guardar el PDF
-        pdf.output(name=ruta_reporte, dest='F')
-
-        # Mostrar mensaje exitoso
-        QMessageBox.information(self, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
-
-        # Abrir el PDF automáticamente
-        os.startfile(ruta_reporte)
-
-        fecha_desde = self.dateEdit_desde_compras.date().toString("dd-MM-yyyy")
-        fecha_hasta = self.dateEdit.date().toString("dd-MM-yyyy")
-
-        # Crear el objeto PDF
-        pdf = FPDF('P', 'mm', 'A4')
-        pdf.add_page()
-        pdf.set_font('Times', 'B', 10)  # Mantener el tamaño de la fuente en 10
-
-        # Obtener la fecha y hora actual
-        now = datetime.now()
-        fecha_actual = now.strftime("%Y-%m-%d")
-        hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
-
-        # Carpeta de destino para los reportes
-        carpeta_destino = "Reportes de compras"
-        if not os.path.exists(carpeta_destino):
-            os.makedirs(carpeta_destino)
-
-        # Nombre único del archivo de reporte
-        id_unico = str(uuid.uuid4())
-        nombre_reporte = f"reporte_compras_{fecha_actual}_{id_unico}.pdf"
-        ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
-
-        # Título del reporte
-        titulo_reporte = "Reporte de compras - " + fecha_actual
-        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
-
-        # Encabezado de la tabla
-        encabezados = ["ID", "Fecha", "SKU", "Código de Barras", "Cantidad", "Descripción"]
-        anchos_columnas = [20, 20, 30, 40, 20, 60]  # Definir anchos de las columnas
-        for encabezado, ancho in zip(encabezados, anchos_columnas):
-            pdf.cell(ancho, 10, encabezado, 1, 0, "C")  # Ajustar el tamaño de las celdas
-        pdf.ln()
-
-        # Realizar la consulta a la base de datos SQLite
-        conn = sqlite3.connect('Base de datos proyecto.db')
-        c = conn.cursor()
-        fecha_seleccionada = self.dateEdit.date().toString("dd-MM-yyyy")
         c.execute("SELECT * FROM compras WHERE fecha BETWEEN ? AND ?", (fecha_desde, fecha_hasta))
         resultados = c.fetchall()
 
@@ -1016,16 +952,80 @@ class Ui_QMainwindow_Reportes(QMainWindow):
                     pdf.cell(ancho, 10, str(dato), 1, 0, "C")  # Ajustar el tamaño de los campos
                 pdf.ln()
 
-            # Mostrar la fecha en la esquina superior izquierda
-            pdf.set_xy(10, 10)
-            pdf.cell(0, 0, fecha_actual, 0, 1, "L")
+        # Guardar el PDF
+        pdf.output(name=ruta_reporte, dest='F')
 
-            # Mostrar la hora en la esquina superior derecha
-            pdf.set_xy(-40, 10)
-            pdf.cell(0, 0, hora_actual, 0, 1, "R")
+        # Mostrar mensaje exitoso
+        QMessageBox.information(self, "Éxito", f"El reporte se ha generado exitosamente como '{nombre_reporte}'")
 
-            # Marca de agua como imagen
-            pdf.image("logo_potro_pdf_fondo.png", x=55, y=100, w=100)
+        # Abrir el PDF automáticamente
+        os.startfile(ruta_reporte)
+
+    def generar_reporte_productos_compras_pdf(self):
+
+        fecha_desde = self.dateEdit_desde_compras.date().toString("dd-MM-yyyy")
+        fecha_hasta = self.dateEdit.date().toString("dd-MM-yyyy")
+
+        # Crear el objeto PDF
+        pdf = FPDF('P', 'mm', 'A4')
+        pdf.add_page()
+        pdf.set_font('Times', 'B', 10) 
+
+        # Obtener la fecha y hora actual
+        now = datetime.now()
+        fecha_actual = now.strftime("%d-%m-%y")
+        hora_actual = now.strftime("%H:%M:%S")  # Formato 99:99:99
+
+        # Mostrar la fecha en la esquina superior izquierda
+        pdf.set_xy(10, 10)
+        pdf.cell(0, 0, fecha_actual, 0, 1, "L")
+
+        # Mostrar la hora en la esquina superior derecha
+        pdf.set_xy(-40, 10)
+        pdf.cell(0, 0, hora_actual, 0, 1, "R")
+
+        # Posicionamiento de la imagen en la parte superior del medio
+        pdf.image("image.png", x=80, y=10, w=50)  # Ajusta las coordenadas y el tamaño de acuerdo a tu imagen
+
+        # Dejar espacio en blanco en la parte superior
+        pdf.ln(50)
+
+        # Carpeta de destino para los reportes
+        carpeta_destino = "Reportes de compras"
+        if not os.path.exists(carpeta_destino):
+            os.makedirs(carpeta_destino)
+
+        # Nombre único del archivo de reporte
+        id_unico = str(uuid.uuid4())
+        nombre_reporte = f"reporte_compras_{fecha_actual}_{id_unico}.pdf"
+        ruta_reporte = os.path.join(carpeta_destino, nombre_reporte)
+
+        # Título del reporte
+        titulo_reporte = "Reporte de compras - " + fecha_actual
+        pdf.cell(190, 10, titulo_reporte, 0, 1, "C")  # Utilizar multicell para el título
+
+        # Encabezado de la tabla
+        encabezados = ["ID", "Fecha", "SKU", "Código de Barras", "Cantidad", "Descripción"]
+        anchos_columnas = [20, 20, 30, 40, 20, 60]  # Definir anchos de las columnas
+        for encabezado, ancho in zip(encabezados, anchos_columnas):
+            pdf.cell(ancho, 10, encabezado, 1, 0, "C")  # Ajustar el tamaño de las celdas
+        pdf.ln()
+
+        # Realizar la consulta a la base de datos SQLite
+        conn = sqlite3.connect('Base de datos proyecto.db')
+        c = conn.cursor()
+        c.execute("SELECT * FROM compras WHERE fecha BETWEEN ? AND ?", (fecha_desde, fecha_hasta))
+        resultados = c.fetchall()
+
+        # Verificar si se encontraron resultados
+        if len(resultados) == 0:
+            QMessageBox.warning(self, "Error", f"No se encuentran compras desde {fecha_desde} hasta {fecha_hasta}")
+        else:
+            # Agregar los resultados al PDF
+            for resultado in resultados:
+                for dato, ancho in zip(resultado, anchos_columnas):
+                    pdf.cell(ancho, 10, str(dato), 1, 0, "C")  # Ajustar el tamaño de los campos
+                pdf.ln()
 
             # Guardar el PDF
             pdf.output(name=ruta_reporte, dest='F')
@@ -1159,7 +1159,6 @@ class Ui_QMainwindow_Reportes(QMainWindow):
             QMessageBox.critical(self, "Error al actualizar", f"Se produjo un error al actualizar el stock: {str(e)}")
         finally:
             conexion.close()
-
 
     def salir(self):
         self.close()
@@ -1361,13 +1360,14 @@ class ui_QMainWindow_productos(QMainWindow):
             conexion.close()
 
     def elimar_prod(self):
+
         try:
             # Recolectar el SKU ingresado en el QLineEdit
             sku = self.lineEdit_sku_buscar_eliminar.text().strip()
 
             # Verificar si el campo está vacío
             if not sku:
-                QMessageBox.warning(self, "Campo vacío", "Por favor, ingrese el SKU a eliminar.")
+                QMessageBox.warning(self, "Campo vacío", "Por favor, ingrese el SKU del producto a manejar.")
                 return
 
             # Realizar la consulta en la base de datos
@@ -1379,23 +1379,60 @@ class ui_QMainWindow_productos(QMainWindow):
 
                 # Verificar si se encontró un producto con el SKU especificado
                 if not producto:
-                    QMessageBox.warning(self, "Producto no encontrado", "No se encontró un producto con el SKU especificado.")
+                    QMessageBox.warning(self, "Producto no encontrado", "El SKU especificado no corresponde a ningún producto en el sistema.")
                     return
 
-                # Si se encontró el producto, confirmar la eliminación
-                respuesta = QMessageBox.question(self, "Confirmar eliminación", "¿Está seguro de que desea eliminar este producto?",
-                                                  QMessageBox.Yes | QMessageBox.No)
-                if respuesta == QMessageBox.Yes:
-                    # Ejecutar la consulta de eliminación
-                    cursor.execute("DELETE FROM Productos WHERE sku=?", (sku,))
-                    conexion.commit()
-                    QMessageBox.information(self, "Éxito", "Producto eliminado correctamente.")
-                    self.tableWidget_eliminar.setRowCount(0)
+                # Si se encontró el producto, mostrar un diálogo para seleccionar la acción a realizar
+                opciones = ["Producto descontinuado", "Producto vencido", "Producto dañado"]
+                accion_seleccionada, ok = QInputDialog.getItem(self, "Seleccionar una opción", "Seleccione una acción para el producto:", opciones, editable=False)
+                if not ok:
+                    return  # El usuario canceló la selección
+
+                cantidad = 0
+                if accion_seleccionada == "Producto descontinuado":
+                    if producto[4] != 0:
+                        QMessageBox.warning(self, "Error", "El producto no puede ser descontinuado porque aún tiene existencias.")
+                        return
+                else:
+                    cantidad, ok = QInputDialog.getInt(self, f"Ingrese cantidad", f"Ingrese la cantidad de productos {accion_seleccionada.lower()}:")
+
+                    if not ok:
+                        return  # El usuario canceló la entrada
+
+                    if cantidad < 0:
+                        QMessageBox.warning(self, "Cantidad incorrecta", "La cantidad debe ser un número positivo.")
+                        return
+
+                    # Verificar si la cantidad ingresada es mayor que la cantidad disponible
+                    if cantidad > producto[4]:
+                        QMessageBox.warning(self, "Cantidad excedida", "La cantidad ingresada es mayor que la cantidad disponible.")
+                        return
+
+                # Insertar el producto en la tabla seleccionada
+                if accion_seleccionada == "Producto descontinuado":
+                    cursor.execute("INSERT INTO Productos_descontinuados (sku, codigo_barras, descripcion, precio, cantidad) VALUES (?, ?, ?, ?, ?)",
+                                (producto[0], producto[1], producto[2], producto[3], producto[4]))
+                elif accion_seleccionada == "Producto vencido":
+                    cursor.execute("INSERT INTO Productos_vencidos (sku, codigo_barras, descripcion, precio, cantidad) VALUES (?, ?, ?, ?, ?)",
+                                (producto[0], producto[1], producto[2], producto[3], cantidad))
+                elif accion_seleccionada == "Producto dañado":
+                    cursor.execute("INSERT INTO Productos_dañados (sku, codigo_barras, descripcion, precio, cantidad) VALUES (?, ?, ?, ?, ?)",
+                                (producto[0], producto[1], producto[2], producto[3], cantidad))
+
+                # Actualizar la cantidad en la tabla "Productos" si no se envía a "Producto descontinuado"
+                if accion_seleccionada != "Producto descontinuado":
+                    nueva_cantidad = producto[4] - cantidad
+                    cursor.execute("UPDATE Productos SET cantidad=? WHERE sku=?", (nueva_cantidad, sku))
+
+                conexion.commit()
+                QMessageBox.information(self, "Éxito", f"Producto {accion_seleccionada.lower()} correctamente.")
+                self.tableWidget_eliminar.setRowCount(0)
             finally:
                 cursor.close()
                 conexion.close()
         except Exception as e:
-            QMessageBox.critical(self, "Error al eliminar", f"Se produjo un error al eliminar el producto: {str(e)}")
+            QMessageBox.critical(self, "Error al manejar producto", f"Se produjo un error al manejar el producto: {str(e)}")
+
 
     def buscar_actualizar (self):
        # Recolectar el SKU ingresado en el QLineEdit

@@ -1285,6 +1285,12 @@ border:0px;</string>
                      <height>30</height>
                     </size>
                    </property>
+                   <property name="inputMask">
+                    <string/>
+                   </property>
+                   <property name="text">
+                    <string/>
+                   </property>
                    <property name="alignment">
                     <set>Qt::AlignCenter</set>
                    </property>
